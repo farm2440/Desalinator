@@ -1,0 +1,5 @@
+C:\work\PSoC4\Desalinator\Desalinator.cydsn\Desalinator.cyprj|8ab67abb-63b3-4def-8cde-af2ada5498c2
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e618d587-7ac7-497f-a111-990177cecf9d
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|0596d97c-447a-4df4-a6bd-d10c093cf975
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|97ebdfd3-9aca-4d78-a447-3b98bb435729
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3bd6fc3e-7767-460d-9fb0-d89ed1445496

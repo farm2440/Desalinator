@@ -1,0 +1,1928 @@
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Thermistor.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__aeabi_idiv
+  18              		.section	.text.Thermistor_GetResistance,"ax",%progbits
+  19              		.align	2
+  20              		.global	Thermistor_GetResistance
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	Thermistor_GetResistance, %function
+  24              	Thermistor_GetResistance:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC4\\Thermistor.c"
+   1:.\Generated_Source\PSoC4/Thermistor.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Thermistor.c **** * File Name: Thermistor.c
+   3:.\Generated_Source\PSoC4/Thermistor.c **** * Version 1.20
+   4:.\Generated_Source\PSoC4/Thermistor.c **** *
+   5:.\Generated_Source\PSoC4/Thermistor.c **** * Description:
+   6:.\Generated_Source\PSoC4/Thermistor.c **** *  This file provides the source code to the API for the ThermistorCalc
+   7:.\Generated_Source\PSoC4/Thermistor.c **** *  Component.
+   8:.\Generated_Source\PSoC4/Thermistor.c **** *
+   9:.\Generated_Source\PSoC4/Thermistor.c **** * Note:
+  10:.\Generated_Source\PSoC4/Thermistor.c **** *  None.
+  11:.\Generated_Source\PSoC4/Thermistor.c **** *
+  12:.\Generated_Source\PSoC4/Thermistor.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC4/Thermistor.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  14:.\Generated_Source\PSoC4/Thermistor.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:.\Generated_Source\PSoC4/Thermistor.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:.\Generated_Source\PSoC4/Thermistor.c **** * the software package with which this file was provided.
+  17:.\Generated_Source\PSoC4/Thermistor.c **** *******************************************************************************/
+  18:.\Generated_Source\PSoC4/Thermistor.c **** 
+  19:.\Generated_Source\PSoC4/Thermistor.c **** #include "Thermistor.h"
+  20:.\Generated_Source\PSoC4/Thermistor.c **** 
+  21:.\Generated_Source\PSoC4/Thermistor.c **** 
+  22:.\Generated_Source\PSoC4/Thermistor.c **** /*******************************************************************************
+  23:.\Generated_Source\PSoC4/Thermistor.c **** * Function Name: Thermistor_GetResistance
+  24:.\Generated_Source\PSoC4/Thermistor.c **** ********************************************************************************
+  25:.\Generated_Source\PSoC4/Thermistor.c **** *
+  26:.\Generated_Source\PSoC4/Thermistor.c **** * Summary:
+  27:.\Generated_Source\PSoC4/Thermistor.c **** *  The digital values of the voltages across the reference resistor and the
+  28:.\Generated_Source\PSoC4/Thermistor.c **** *  thermistor are passed to this function as parameters. The function returns
+  29:.\Generated_Source\PSoC4/Thermistor.c **** *  the resistance, based on the voltage values.
+  30:.\Generated_Source\PSoC4/Thermistor.c **** *
+  31:.\Generated_Source\PSoC4/Thermistor.c **** * Parameters:
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 2
+
+
+  32:.\Generated_Source\PSoC4/Thermistor.c **** *  vReference: the voltage across the reference resistor;
+  33:.\Generated_Source\PSoC4/Thermistor.c **** *  vThermistor: the voltage across the thermistor.
+  34:.\Generated_Source\PSoC4/Thermistor.c **** *  The ratio of these two voltages is used by this function. Therefore, the
+  35:.\Generated_Source\PSoC4/Thermistor.c **** *  units for both parameters must be the same.
+  36:.\Generated_Source\PSoC4/Thermistor.c **** *
+  37:.\Generated_Source\PSoC4/Thermistor.c **** * Return:
+  38:.\Generated_Source\PSoC4/Thermistor.c **** *  The return value is the resistance across the thermistor. The value returned
+  39:.\Generated_Source\PSoC4/Thermistor.c **** *  is the resistance in Ohms.
+  40:.\Generated_Source\PSoC4/Thermistor.c **** *
+  41:.\Generated_Source\PSoC4/Thermistor.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/Thermistor.c **** uint32 Thermistor_GetResistance(int16 vReference, int16 vThermistor)
+  43:.\Generated_Source\PSoC4/Thermistor.c ****                                       
+  44:.\Generated_Source\PSoC4/Thermistor.c **** {
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30 0000 08B5     		push	{r3, lr}
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 3, -8
+  33              		.cfi_offset 14, -4
+  34 0002 021C     		mov	r2, r0
+  45:.\Generated_Source\PSoC4/Thermistor.c ****     int32 resT;
+  46:.\Generated_Source\PSoC4/Thermistor.c ****     int16 temp;
+  47:.\Generated_Source\PSoC4/Thermistor.c **** 
+  48:.\Generated_Source\PSoC4/Thermistor.c ****     /* Calculate thermistor resistance from the voltages */
+  49:.\Generated_Source\PSoC4/Thermistor.c ****     resT = Thermistor_REF_RESISTOR * ((int32)vThermistor);
+  35              		.loc 1 49 0
+  36 0004 084B     		ldr	r3, .L4
+  37 0006 5943     		mul	r1, r3
+  38              	.LVL1:
+  50:.\Generated_Source\PSoC4/Thermistor.c ****     if (vReference < 0)
+  39              		.loc 1 50 0
+  40 0008 0028     		cmp	r0, #0
+  41 000a 05DA     		bge	.L2
+  51:.\Generated_Source\PSoC4/Thermistor.c ****     {
+  52:.\Generated_Source\PSoC4/Thermistor.c ****         temp = -vReference;
+  42              		.loc 1 52 0
+  43 000c 4342     		neg	r3, r0
+  44 000e 9BB2     		uxth	r3, r3
+  45              	.LVL2:
+  53:.\Generated_Source\PSoC4/Thermistor.c ****         temp = (int16)((uint16)((uint16)temp >> 1u));
+  46              		.loc 1 53 0
+  47 0010 5B08     		lsr	r3, r3, #1
+  48              	.LVL3:
+  54:.\Generated_Source\PSoC4/Thermistor.c ****         temp = -temp;
+  49              		.loc 1 54 0
+  50 0012 5B42     		neg	r3, r3
+  51              	.LVL4:
+  52 0014 9BB2     		uxth	r3, r3
+  53              	.LVL5:
+  54 0016 01E0     		b	.L3
+  55              	.LVL6:
+  56              	.L2:
+  55:.\Generated_Source\PSoC4/Thermistor.c ****     }
+  56:.\Generated_Source\PSoC4/Thermistor.c ****     else
+  57:.\Generated_Source\PSoC4/Thermistor.c ****     {
+  58:.\Generated_Source\PSoC4/Thermistor.c ****         temp = (int16)((uint16)((uint16)vReference >> 1u));
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 3
+
+
+  57              		.loc 1 58 0
+  58 0018 83B2     		uxth	r3, r0
+  59 001a 5B08     		lsr	r3, r3, #1
+  60              	.LVL7:
+  61              	.L3:
+  59:.\Generated_Source\PSoC4/Thermistor.c ****     }
+  60:.\Generated_Source\PSoC4/Thermistor.c ****     resT += temp;
+  62              		.loc 1 60 0
+  63 001c 1BB2     		sxth	r3, r3
+  64 001e 5818     		add	r0, r3, r1
+  65              	.LVL8:
+  61:.\Generated_Source\PSoC4/Thermistor.c ****     resT /= vReference;
+  66              		.loc 1 61 0
+  67 0020 111C     		mov	r1, r2
+  68 0022 FFF7FEFF 		bl	__aeabi_idiv
+  69              	.LVL9:
+  62:.\Generated_Source\PSoC4/Thermistor.c **** 
+  63:.\Generated_Source\PSoC4/Thermistor.c ****     /* The ordering of Reference resistor value is specifically designed to keep the result from ov
+  64:.\Generated_Source\PSoC4/Thermistor.c ****     return ((uint32)((uint32)resT << Thermistor_REF_RES_SHIFT));
+  65:.\Generated_Source\PSoC4/Thermistor.c **** }
+  70              		.loc 1 65 0
+  71              		@ sp needed
+  72 0026 08BD     		pop	{r3, pc}
+  73              	.L5:
+  74              		.align	2
+  75              	.L4:
+  76 0028 10270000 		.word	10000
+  77              		.cfi_endproc
+  78              	.LFE0:
+  79              		.size	Thermistor_GetResistance, .-Thermistor_GetResistance
+  80              		.section	.text.Thermistor_GetTemperature,"ax",%progbits
+  81              		.align	2
+  82              		.global	Thermistor_GetTemperature
+  83              		.code	16
+  84              		.thumb_func
+  85              		.type	Thermistor_GetTemperature, %function
+  86              	Thermistor_GetTemperature:
+  87              	.LFB1:
+  66:.\Generated_Source\PSoC4/Thermistor.c **** 
+  67:.\Generated_Source\PSoC4/Thermistor.c **** 
+  68:.\Generated_Source\PSoC4/Thermistor.c **** /*******************************************************************************
+  69:.\Generated_Source\PSoC4/Thermistor.c **** * Function Name: Thermistor_GetTemperature
+  70:.\Generated_Source\PSoC4/Thermistor.c **** ********************************************************************************
+  71:.\Generated_Source\PSoC4/Thermistor.c **** *
+  72:.\Generated_Source\PSoC4/Thermistor.c **** * Summary:
+  73:.\Generated_Source\PSoC4/Thermistor.c **** *  The value of the thermistor resistance is passed to this function as a
+  74:.\Generated_Source\PSoC4/Thermistor.c **** *  parameter. The function returns the temperature, based on the resistance
+  75:.\Generated_Source\PSoC4/Thermistor.c **** *  value. The method used to calculate the temperature is dependent on whether
+  76:.\Generated_Source\PSoC4/Thermistor.c **** *  Equation or LUT was selected in the Customizer.
+  77:.\Generated_Source\PSoC4/Thermistor.c **** *
+  78:.\Generated_Source\PSoC4/Thermistor.c **** * Parameters:
+  79:.\Generated_Source\PSoC4/Thermistor.c **** *  resT: the resistance across the thermistor in Ohms.
+  80:.\Generated_Source\PSoC4/Thermistor.c **** *
+  81:.\Generated_Source\PSoC4/Thermistor.c **** * Return:
+  82:.\Generated_Source\PSoC4/Thermistor.c **** *  The return value is the temperature in 1/100ths of degrees C. For example,
+  83:.\Generated_Source\PSoC4/Thermistor.c **** *  the return value is 2345, when the actual temperature is 23.45 degrees C.
+  84:.\Generated_Source\PSoC4/Thermistor.c **** *
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 4
+
+
+  85:.\Generated_Source\PSoC4/Thermistor.c **** *******************************************************************************/
+  86:.\Generated_Source\PSoC4/Thermistor.c **** int16 Thermistor_GetTemperature(uint32 resT) 
+  87:.\Generated_Source\PSoC4/Thermistor.c **** {
+  88              		.loc 1 87 0
+  89              		.cfi_startproc
+  90              	.LVL10:
+  91 0000 30B5     		push	{r4, r5, lr}
+  92              		.cfi_def_cfa_offset 12
+  93              		.cfi_offset 4, -12
+  94              		.cfi_offset 5, -8
+  95              		.cfi_offset 14, -4
+  96              	.LVL11:
+  88:.\Generated_Source\PSoC4/Thermistor.c ****     int16 tempTR;
+  89:.\Generated_Source\PSoC4/Thermistor.c ****     static const uint32 CYCODE Thermistor_LUT[] = { 42564u, 42369u, 42176u, 41983u, 41792u, 41601u,
+  90:.\Generated_Source\PSoC4/Thermistor.c ****  40849u, 40663u, 40479u, 40295u, 40112u, 39930u, 39749u, 39569u, 39390u, 39212u, 39034u, 38858u, 38
+  91:.\Generated_Source\PSoC4/Thermistor.c ****  38161u, 37989u, 37818u, 37648u, 37479u, 37310u, 37143u, 36976u, 36810u, 36645u, 36481u, 36317u, 36
+  92:.\Generated_Source\PSoC4/Thermistor.c ****  35672u, 35512u, 35354u, 35196u, 35039u, 34883u, 34728u, 34573u, 34419u, 34266u, 34114u, 33963u, 33
+  93:.\Generated_Source\PSoC4/Thermistor.c ****  33364u, 33216u, 33069u, 32923u, 32778u, 32633u, 32489u, 32345u, 32203u, 32061u, 31920u, 31779u, 31
+  94:.\Generated_Source\PSoC4/Thermistor.c ****  31224u, 31087u, 30951u, 30815u, 30680u, 30546u, 30412u, 30279u, 30147u, 30015u, 29884u, 29753u, 29
+  95:.\Generated_Source\PSoC4/Thermistor.c ****  29238u, 29111u, 28984u, 28858u, 28733u, 28608u, 28484u, 28361u, 28238u, 28115u, 27994u, 27873u, 27
+  96:.\Generated_Source\PSoC4/Thermistor.c ****  27394u, 27276u, 27158u, 27041u, 26925u, 26809u, 26694u, 26579u, 26465u, 26351u, 26238u, 26125u, 26
+  97:.\Generated_Source\PSoC4/Thermistor.c ****  25681u, 25571u, 25462u, 25353u, 25245u, 25137u, 25030u, 24923u, 24817u, 24711u, 24606u, 24501u, 24
+  98:.\Generated_Source\PSoC4/Thermistor.c ****  24088u, 23986u, 23884u, 23783u, 23682u, 23582u, 23482u, 23383u, 23284u, 23186u, 23088u, 22991u, 22
+  99:.\Generated_Source\PSoC4/Thermistor.c ****  22606u, 22511u, 22417u, 22322u, 22229u, 22135u, 22043u, 21950u, 21858u, 21767u, 21676u, 21585u, 21
+ 100:.\Generated_Source\PSoC4/Thermistor.c ****  21227u, 21139u, 21051u, 20963u, 20876u, 20789u, 20702u, 20616u, 20531u, 20446u, 20361u, 20276u, 20
+ 101:.\Generated_Source\PSoC4/Thermistor.c ****  19943u, 19860u, 19778u, 19697u, 19615u, 19535u, 19454u, 19374u, 19294u, 19215u, 19136u, 19057u, 18
+ 102:.\Generated_Source\PSoC4/Thermistor.c ****  18746u, 18669u, 18593u, 18517u, 18441u, 18366u, 18291u, 18216u, 18142u, 18068u, 17994u, 17921u, 17
+ 103:.\Generated_Source\PSoC4/Thermistor.c ****  17631u, 17559u, 17488u, 17417u, 17346u, 17276u, 17206u, 17136u, 17067u, 16998u, 16929u, 16860u, 16
+ 104:.\Generated_Source\PSoC4/Thermistor.c ****  16590u, 16523u, 16456u, 16390u, 16324u, 16259u, 16193u, 16128u, 16064u, 15999u, 15935u, 15871u, 15
+ 105:.\Generated_Source\PSoC4/Thermistor.c ****  15619u, 15556u, 15494u, 15432u, 15371u, 15309u, 15248u, 15188u, 15127u, 15067u, 15007u, 14947u, 14
+ 106:.\Generated_Source\PSoC4/Thermistor.c ****  14712u, 14653u, 14595u, 14537u, 14480u, 14423u, 14366u, 14309u, 14252u, 14196u, 14140u, 14085u, 14
+ 107:.\Generated_Source\PSoC4/Thermistor.c ****  13864u, 13810u, 13755u, 13701u, 13648u, 13594u, 13541u, 13488u, 13435u, 13382u, 13330u, 13278u, 13
+ 108:.\Generated_Source\PSoC4/Thermistor.c ****  13072u, 13021u, 12970u, 12920u, 12869u, 12819u, 12770u, 12720u, 12671u, 12621u, 12573u, 12524u, 12
+ 109:.\Generated_Source\PSoC4/Thermistor.c ****  12331u, 12283u, 12236u, 12189u, 12142u, 12095u, 12048u, 12002u, 11956u, 11910u, 11864u, 11818u, 11
+ 110:.\Generated_Source\PSoC4/Thermistor.c ****  11638u, 11593u, 11549u, 11504u, 11460u, 11417u, 11373u, 11329u, 11286u, 11243u, 11200u, 11157u, 11
+ 111:.\Generated_Source\PSoC4/Thermistor.c ****  10989u, 10947u, 10905u, 10864u, 10822u, 10781u, 10741u, 10700u, 10659u, 10619u, 10579u, 10539u, 10
+ 112:.\Generated_Source\PSoC4/Thermistor.c ****  10380u, 10341u, 10302u, 10264u, 10225u, 10186u, 10148u, 10110u, 10072u, 10034u, 9996u, 9959u, 9922
+ 113:.\Generated_Source\PSoC4/Thermistor.c ****  9811u, 9774u, 9737u, 9701u, 9665u, 9629u, 9593u, 9557u, 9521u, 9486u, 9451u, 9415u, 9380u, 9346u, 
+ 114:.\Generated_Source\PSoC4/Thermistor.c ****  9208u, 9173u, 9140u, 9106u, 9072u, 9038u, 9005u, 8972u, 8939u, 8906u, 8873u, 8840u, 8808u, 8775u, 
+ 115:.\Generated_Source\PSoC4/Thermistor.c ****  8647u, 8615u, 8583u, 8552u, 8520u, 8489u, 8458u, 8427u, 8396u, 8366u, 8335u, 8305u, 8274u, 8244u, 
+ 116:.\Generated_Source\PSoC4/Thermistor.c ****  8125u, 8095u, 8066u, 8036u, 8007u, 7978u, 7949u, 7920u, 7892u, 7863u, 7834u, 7806u, 7778u, 7750u, 
+ 117:.\Generated_Source\PSoC4/Thermistor.c ****  7638u, 7611u, 7583u, 7556u, 7529u, 7502u, 7475u, 7448u, 7421u, 7395u, 7368u, 7342u, 7315u, 7289u, 
+ 118:.\Generated_Source\PSoC4/Thermistor.c ****  7185u, 7160u, 7134u, 7109u, 7083u, 7058u, 7033u, 7008u, 6983u, 6958u, 6933u, 6909u, 6884u, 6860u, 
+ 119:.\Generated_Source\PSoC4/Thermistor.c ****  6763u, 6739u, 6715u, 6691u, 6668u, 6644u, 6621u, 6597u, 6574u, 6551u, 6528u, 6505u, 6482u, 6459u, 
+ 120:.\Generated_Source\PSoC4/Thermistor.c ****  6369u, 6346u, 6324u, 6302u, 6280u, 6258u, 6236u, 6214u, 6192u, 6171u, 6149u, 6128u, 6106u, 6085u, 
+ 121:.\Generated_Source\PSoC4/Thermistor.c ****  6001u, 5980u, 5959u, 5938u, 5918u, 5897u, 5877u, 5856u, 5836u, 5816u, 5796u, 5776u, 5756u, 5736u, 
+ 122:.\Generated_Source\PSoC4/Thermistor.c ****  5657u, 5638u, 5618u, 5599u, 5579u, 5560u, 5541u, 5522u, 5503u, 5484u, 5465u, 5447u, 5428u, 5409u, 
+ 123:.\Generated_Source\PSoC4/Thermistor.c ****  5336u, 5318u, 5299u, 5281u, 5263u, 5245u, 5228u, 5210u, 5192u, 5174u, 5157u, 5139u, 5122u, 5104u, 
+ 124:.\Generated_Source\PSoC4/Thermistor.c ****  5035u, 5018u, 5001u, 4985u, 4968u, 4951u, 4934u, 4917u, 4901u, 4884u, 4868u, 4852u, 4835u, 4819u, 
+ 125:.\Generated_Source\PSoC4/Thermistor.c ****  4754u, 4739u, 4723u, 4707u, 4691u, 4675u, 4660u, 4644u, 4629u, 4613u, 4598u, 4582u, 4567u, 4552u, 
+ 126:.\Generated_Source\PSoC4/Thermistor.c ****  4491u, 4476u, 4462u, 4447u, 4432u, 4417u, 4403u, 4388u, 4373u, 4359u, 4345u, 4330u, 4316u, 4302u, 
+ 127:.\Generated_Source\PSoC4/Thermistor.c ****  4245u, 4231u, 4217u, 4203u, 4189u, 4176u, 4162u, 4148u, 4135u, 4121u, 4107u, 4094u, 4081u, 4067u, 
+ 128:.\Generated_Source\PSoC4/Thermistor.c ****  4014u, 4001u, 3988u, 3975u, 3962u, 3949u, 3936u, 3923u, 3911u, 3898u, 3885u, 3872u, 3860u, 3847u, 
+ 129:.\Generated_Source\PSoC4/Thermistor.c ****  3798u, 3785u, 3773u, 3761u, 3749u, 3737u, 3725u, 3712u, 3700u, 3689u, 3677u, 3665u, 3653u, 3641u, 
+ 130:.\Generated_Source\PSoC4/Thermistor.c ****  3595u, 3583u, 3572u, 3560u, 3549u, 3537u, 3526u, 3515u, 3503u, 3492u, 3481u, 3470u, 3459u, 3448u, 
+ 131:.\Generated_Source\PSoC4/Thermistor.c ****  3404u, 3393u, 3382u, 3372u, 3361u, 3350u, 3340u, 3329u, 3318u, 3308u, 3297u, 3287u, 3277u, 3266u, 
+ 132:.\Generated_Source\PSoC4/Thermistor.c ****  3225u, 3215u, 3205u, 3195u, 3185u, 3174u, 3164u, 3155u, 3145u, 3135u, 3125u, 3115u, 3105u, 3096u, 
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 5
+
+
+ 133:.\Generated_Source\PSoC4/Thermistor.c ****  3057u, 3047u, 3038u, 3028u, 3019u, 3009u, 3000u };
+ 134:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 135:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 136:.\Generated_Source\PSoC4/Thermistor.c ****     #if (Thermistor_IMPLEMENTATION == Thermistor_EQUATION_METHOD)
+ 137:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 138:.\Generated_Source\PSoC4/Thermistor.c ****         float32 stEqn;
+ 139:.\Generated_Source\PSoC4/Thermistor.c ****         float32 logrT;
+ 140:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 141:.\Generated_Source\PSoC4/Thermistor.c ****         /* Calculate thermistor resistance from the voltages */
+ 142:.\Generated_Source\PSoC4/Thermistor.c ****         #if(!CY_PSOC3)
+ 143:.\Generated_Source\PSoC4/Thermistor.c ****             logrT = (float32)log((float64)resT);
+ 144:.\Generated_Source\PSoC4/Thermistor.c ****         #else
+ 145:.\Generated_Source\PSoC4/Thermistor.c ****             logrT = log((float32)resT);
+ 146:.\Generated_Source\PSoC4/Thermistor.c ****         #endif  /* (!CY_PSOC3) */
+ 147:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 148:.\Generated_Source\PSoC4/Thermistor.c ****         /* Calculate temperature from the resistance of thermistor using Steinhart-Hart Equation */
+ 149:.\Generated_Source\PSoC4/Thermistor.c ****         #if(!CY_PSOC3)
+ 150:.\Generated_Source\PSoC4/Thermistor.c ****             stEqn = (float32)(Thermistor_THA + (Thermistor_THB * logrT) + 
+ 151:.\Generated_Source\PSoC4/Thermistor.c ****                              (Thermistor_THC * pow((float64)logrT, (float32)3)));
+ 152:.\Generated_Source\PSoC4/Thermistor.c ****         #else
+ 153:.\Generated_Source\PSoC4/Thermistor.c ****             stEqn = (float32)(Thermistor_THA + (Thermistor_THB * logrT) + 
+ 154:.\Generated_Source\PSoC4/Thermistor.c ****                              (Thermistor_THC * pow(logrT, (float32)3)));
+ 155:.\Generated_Source\PSoC4/Thermistor.c ****         #endif  /* (!CY_PSOC3) */
+ 156:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 157:.\Generated_Source\PSoC4/Thermistor.c ****         tempTR = (int16)((float32)((((1.0 / stEqn) - Thermistor_K2C) * (float32)Thermistor_SCALE) +
+ 158:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 159:.\Generated_Source\PSoC4/Thermistor.c ****     #else /* Thermistor_IMPLEMENTATION == Thermistor_LUT_METHOD */
+ 160:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 161:.\Generated_Source\PSoC4/Thermistor.c ****         uint16 mid;
+ 162:.\Generated_Source\PSoC4/Thermistor.c ****         uint16 first = 0u;
+ 163:.\Generated_Source\PSoC4/Thermistor.c ****         uint16 last = Thermistor_LUT_SIZE - 1u;
+  97              		.loc 1 163 0
+  98 0002 AF21     		mov	r1, #175
+  99 0004 8900     		lsl	r1, r1, #2
+ 162:.\Generated_Source\PSoC4/Thermistor.c ****         uint16 last = Thermistor_LUT_SIZE - 1u;
+ 100              		.loc 1 162 0
+ 101 0006 0024     		mov	r4, #0
+ 164:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 165:.\Generated_Source\PSoC4/Thermistor.c ****         /* Calculate temperature from the resistance of thermistor by using the LUT */
+ 166:.\Generated_Source\PSoC4/Thermistor.c ****         while (first < last)
+ 102              		.loc 1 166 0
+ 103 0008 14E0     		b	.L7
+ 104              	.LVL12:
+ 105              	.L13:
+ 167:.\Generated_Source\PSoC4/Thermistor.c ****         {
+ 168:.\Generated_Source\PSoC4/Thermistor.c ****             mid = (first + last) >> 1u;
+ 106              		.loc 1 168 0
+ 107 000a 6318     		add	r3, r4, r1
+ 108 000c 5B10     		asr	r3, r3, #1
+ 109 000e 9AB2     		uxth	r2, r3
+ 110              	.LVL13:
+ 169:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 170:.\Generated_Source\PSoC4/Thermistor.c ****             if ((0u == mid) || ((Thermistor_LUT_SIZE - 1u) == mid) || (resT == Thermistor_LUT[mid])
+ 111              		.loc 1 170 0
+ 112 0010 002A     		cmp	r2, #0
+ 113 0012 12D0     		beq	.L10
+ 114              		.loc 1 170 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 6
+
+
+ 115 0014 AF25     		mov	r5, #175
+ 116 0016 AD00     		lsl	r5, r5, #2
+ 117 0018 AA42     		cmp	r2, r5
+ 118 001a 0ED0     		beq	.L10
+ 119              		.loc 1 170 0 discriminator 2
+ 120 001c 1B04     		lsl	r3, r3, #16
+ 121 001e 9B0B     		lsr	r3, r3, #14
+ 122 0020 1A4D     		ldr	r5, .L16
+ 123 0022 5B59     		ldr	r3, [r3, r5]
+ 124 0024 8342     		cmp	r3, r0
+ 125 0026 08D0     		beq	.L10
+ 171:.\Generated_Source\PSoC4/Thermistor.c ****             {
+ 172:.\Generated_Source\PSoC4/Thermistor.c ****                 last = mid;
+ 173:.\Generated_Source\PSoC4/Thermistor.c ****                 break;
+ 174:.\Generated_Source\PSoC4/Thermistor.c ****             }
+ 175:.\Generated_Source\PSoC4/Thermistor.c ****             else if (Thermistor_LUT[mid] > resT)
+ 126              		.loc 1 175 0 is_stmt 1
+ 127 0028 02D9     		bls	.L11
+ 176:.\Generated_Source\PSoC4/Thermistor.c ****             {
+ 177:.\Generated_Source\PSoC4/Thermistor.c ****                 first = mid + 1u;
+ 128              		.loc 1 177 0
+ 129 002a 0132     		add	r2, r2, #1
+ 130              	.LVL14:
+ 131 002c 94B2     		uxth	r4, r2
+ 132              	.LVL15:
+ 133 002e 01E0     		b	.L7
+ 134              	.LVL16:
+ 135              	.L11:
+ 178:.\Generated_Source\PSoC4/Thermistor.c ****             }
+ 179:.\Generated_Source\PSoC4/Thermistor.c ****             else /* (Thermistor_LUT[mid] < resT) */
+ 180:.\Generated_Source\PSoC4/Thermistor.c ****             {
+ 181:.\Generated_Source\PSoC4/Thermistor.c ****                 last = mid - 1u;
+ 136              		.loc 1 181 0
+ 137 0030 511E     		sub	r1, r2, #1
+ 138              	.LVL17:
+ 139 0032 89B2     		uxth	r1, r1
+ 140              	.LVL18:
+ 141              	.L7:
+ 166:.\Generated_Source\PSoC4/Thermistor.c ****         {
+ 142              		.loc 1 166 0
+ 143 0034 8C42     		cmp	r4, r1
+ 144 0036 E8D3     		bcc	.L13
+ 145 0038 0A1C     		mov	r2, r1
+ 146              	.L10:
+ 147              	.LVL19:
+ 182:.\Generated_Source\PSoC4/Thermistor.c ****             }
+ 183:.\Generated_Source\PSoC4/Thermistor.c ****         }
+ 184:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 185:.\Generated_Source\PSoC4/Thermistor.c ****         /* Calculation the closest entry in the LUT */
+ 186:.\Generated_Source\PSoC4/Thermistor.c ****         if ((Thermistor_LUT[last] > resT) && (last < (Thermistor_LUT_SIZE - 1u)) &&
+ 148              		.loc 1 186 0
+ 149 003a 9300     		lsl	r3, r2, #2
+ 150 003c 1349     		ldr	r1, .L16
+ 151 003e 5B58     		ldr	r3, [r3, r1]
+ 152 0040 8342     		cmp	r3, r0
+ 153 0042 0DD9     		bls	.L14
+ 154              		.loc 1 186 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 7
+
+
+ 155 0044 1249     		ldr	r1, .L16+4
+ 156 0046 8A42     		cmp	r2, r1
+ 157 0048 0AD8     		bhi	.L14
+ 187:.\Generated_Source\PSoC4/Thermistor.c ****            ((Thermistor_LUT[last] - resT) > (resT - Thermistor_LUT[last + 1u])))
+ 158              		.loc 1 187 0 is_stmt 1 discriminator 2
+ 159 004a 1C1A     		sub	r4, r3, r0
+ 160              	.LVL20:
+ 161 004c 511C     		add	r1, r2, #1
+ 162 004e 8900     		lsl	r1, r1, #2
+ 163 0050 0E4D     		ldr	r5, .L16
+ 164 0052 4959     		ldr	r1, [r1, r5]
+ 165 0054 411A     		sub	r1, r0, r1
+ 186:.\Generated_Source\PSoC4/Thermistor.c ****            ((Thermistor_LUT[last] - resT) > (resT - Thermistor_LUT[last + 1u])))
+ 166              		.loc 1 186 0 discriminator 2
+ 167 0056 8C42     		cmp	r4, r1
+ 168 0058 02D9     		bls	.L14
+ 188:.\Generated_Source\PSoC4/Thermistor.c ****         {
+ 189:.\Generated_Source\PSoC4/Thermistor.c ****             last++;
+ 169              		.loc 1 189 0
+ 170 005a 0132     		add	r2, r2, #1
+ 171              	.LVL21:
+ 172 005c 92B2     		uxth	r2, r2
+ 173              	.LVL22:
+ 174 005e 0DE0     		b	.L15
+ 175              	.L14:
+ 190:.\Generated_Source\PSoC4/Thermistor.c ****         }
+ 191:.\Generated_Source\PSoC4/Thermistor.c ****         else if ((Thermistor_LUT[last] < resT) && (last > 0u) &&
+ 176              		.loc 1 191 0
+ 177 0060 9842     		cmp	r0, r3
+ 178 0062 0BD9     		bls	.L15
+ 179              		.loc 1 191 0 is_stmt 0 discriminator 1
+ 180 0064 002A     		cmp	r2, #0
+ 181 0066 09D0     		beq	.L15
+ 192:.\Generated_Source\PSoC4/Thermistor.c ****                 ((Thermistor_LUT[last - 1u] - resT) < (resT - Thermistor_LUT[last])))
+ 182              		.loc 1 192 0 is_stmt 1 discriminator 2
+ 183 0068 511E     		sub	r1, r2, #1
+ 184 006a 8900     		lsl	r1, r1, #2
+ 185 006c 074C     		ldr	r4, .L16
+ 186 006e 0959     		ldr	r1, [r1, r4]
+ 187 0070 091A     		sub	r1, r1, r0
+ 188 0072 C01A     		sub	r0, r0, r3
+ 189              	.LVL23:
+ 191:.\Generated_Source\PSoC4/Thermistor.c ****                 ((Thermistor_LUT[last - 1u] - resT) < (resT - Thermistor_LUT[last])))
+ 190              		.loc 1 191 0 discriminator 2
+ 191 0074 8142     		cmp	r1, r0
+ 192 0076 01D2     		bcs	.L15
+ 193:.\Generated_Source\PSoC4/Thermistor.c ****         {
+ 194:.\Generated_Source\PSoC4/Thermistor.c ****             last--;
+ 193              		.loc 1 194 0
+ 194 0078 013A     		sub	r2, r2, #1
+ 195              	.LVL24:
+ 196 007a 92B2     		uxth	r2, r2
+ 197              	.LVL25:
+ 198              	.L15:
+ 195:.\Generated_Source\PSoC4/Thermistor.c ****         }
+ 196:.\Generated_Source\PSoC4/Thermistor.c ****         else
+ 197:.\Generated_Source\PSoC4/Thermistor.c ****         {
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 8
+
+
+ 198:.\Generated_Source\PSoC4/Thermistor.c ****             /* Closest entry in the LUT already found */
+ 199:.\Generated_Source\PSoC4/Thermistor.c ****         }
+ 200:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 201:.\Generated_Source\PSoC4/Thermistor.c ****         tempTR = Thermistor_MIN_TEMP + (int16)((uint16)(last * Thermistor_ACCURACY));
+ 199              		.loc 1 201 0
+ 200 007c 9300     		lsl	r3, r2, #2
+ 201 007e D218     		add	r2, r2, r3
+ 202              	.LVL26:
+ 203 0080 5000     		lsl	r0, r2, #1
+ 204 0082 044B     		ldr	r3, .L16+8
+ 205 0084 9C46     		mov	ip, r3
+ 206 0086 6044     		add	r0, r0, ip
+ 207              	.LVL27:
+ 202:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 203:.\Generated_Source\PSoC4/Thermistor.c ****     #endif /* (Thermistor_IMPLEMENTATION == Thermistor_EQUATION_METHOD) */
+ 204:.\Generated_Source\PSoC4/Thermistor.c **** 
+ 205:.\Generated_Source\PSoC4/Thermistor.c ****     return (tempTR);
+ 208              		.loc 1 205 0
+ 209 0088 00B2     		sxth	r0, r0
+ 206:.\Generated_Source\PSoC4/Thermistor.c **** }
+ 210              		.loc 1 206 0
+ 211              		@ sp needed
+ 212 008a 30BD     		pop	{r4, r5, pc}
+ 213              	.L17:
+ 214              		.align	2
+ 215              	.L16:
+ 216 008c 00000000 		.word	.LANCHOR0
+ 217 0090 BB020000 		.word	699
+ 218 0094 18FCFFFF 		.word	-1000
+ 219              		.cfi_endproc
+ 220              	.LFE1:
+ 221              		.size	Thermistor_GetTemperature, .-Thermistor_GetTemperature
+ 222              		.section	.rodata
+ 223              		.align	2
+ 224              		.set	.LANCHOR0,. + 0
+ 225              		.type	Thermistor_LUT.4694, %object
+ 226              		.size	Thermistor_LUT.4694, 2804
+ 227              	Thermistor_LUT.4694:
+ 228 0000 44A60000 		.word	42564
+ 229 0004 81A50000 		.word	42369
+ 230 0008 C0A40000 		.word	42176
+ 231 000c FFA30000 		.word	41983
+ 232 0010 40A30000 		.word	41792
+ 233 0014 81A20000 		.word	41601
+ 234 0018 C4A10000 		.word	41412
+ 235 001c 07A10000 		.word	41223
+ 236 0020 4CA00000 		.word	41036
+ 237 0024 919F0000 		.word	40849
+ 238 0028 D79E0000 		.word	40663
+ 239 002c 1F9E0000 		.word	40479
+ 240 0030 679D0000 		.word	40295
+ 241 0034 B09C0000 		.word	40112
+ 242 0038 FA9B0000 		.word	39930
+ 243 003c 459B0000 		.word	39749
+ 244 0040 919A0000 		.word	39569
+ 245 0044 DE990000 		.word	39390
+ 246 0048 2C990000 		.word	39212
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 9
+
+
+ 247 004c 7A980000 		.word	39034
+ 248 0050 CA970000 		.word	38858
+ 249 0054 1A970000 		.word	38682
+ 250 0058 6C960000 		.word	38508
+ 251 005c BE950000 		.word	38334
+ 252 0060 11950000 		.word	38161
+ 253 0064 65940000 		.word	37989
+ 254 0068 BA930000 		.word	37818
+ 255 006c 10930000 		.word	37648
+ 256 0070 67920000 		.word	37479
+ 257 0074 BE910000 		.word	37310
+ 258 0078 17910000 		.word	37143
+ 259 007c 70900000 		.word	36976
+ 260 0080 CA8F0000 		.word	36810
+ 261 0084 258F0000 		.word	36645
+ 262 0088 818E0000 		.word	36481
+ 263 008c DD8D0000 		.word	36317
+ 264 0090 3B8D0000 		.word	36155
+ 265 0094 998C0000 		.word	35993
+ 266 0098 F88B0000 		.word	35832
+ 267 009c 588B0000 		.word	35672
+ 268 00a0 B88A0000 		.word	35512
+ 269 00a4 1A8A0000 		.word	35354
+ 270 00a8 7C890000 		.word	35196
+ 271 00ac DF880000 		.word	35039
+ 272 00b0 43880000 		.word	34883
+ 273 00b4 A8870000 		.word	34728
+ 274 00b8 0D870000 		.word	34573
+ 275 00bc 73860000 		.word	34419
+ 276 00c0 DA850000 		.word	34266
+ 277 00c4 42850000 		.word	34114
+ 278 00c8 AB840000 		.word	33963
+ 279 00cc 14840000 		.word	33812
+ 280 00d0 7E830000 		.word	33662
+ 281 00d4 E9820000 		.word	33513
+ 282 00d8 54820000 		.word	33364
+ 283 00dc C0810000 		.word	33216
+ 284 00e0 2D810000 		.word	33069
+ 285 00e4 9B800000 		.word	32923
+ 286 00e8 0A800000 		.word	32778
+ 287 00ec 797F0000 		.word	32633
+ 288 00f0 E97E0000 		.word	32489
+ 289 00f4 597E0000 		.word	32345
+ 290 00f8 CB7D0000 		.word	32203
+ 291 00fc 3D7D0000 		.word	32061
+ 292 0100 B07C0000 		.word	31920
+ 293 0104 237C0000 		.word	31779
+ 294 0108 977B0000 		.word	31639
+ 295 010c 0C7B0000 		.word	31500
+ 296 0110 827A0000 		.word	31362
+ 297 0114 F8790000 		.word	31224
+ 298 0118 6F790000 		.word	31087
+ 299 011c E7780000 		.word	30951
+ 300 0120 5F780000 		.word	30815
+ 301 0124 D8770000 		.word	30680
+ 302 0128 52770000 		.word	30546
+ 303 012c CC760000 		.word	30412
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 10
+
+
+ 304 0130 47760000 		.word	30279
+ 305 0134 C3750000 		.word	30147
+ 306 0138 3F750000 		.word	30015
+ 307 013c BC740000 		.word	29884
+ 308 0140 39740000 		.word	29753
+ 309 0144 B8730000 		.word	29624
+ 310 0148 36730000 		.word	29494
+ 311 014c B6720000 		.word	29366
+ 312 0150 36720000 		.word	29238
+ 313 0154 B7710000 		.word	29111
+ 314 0158 38710000 		.word	28984
+ 315 015c BA700000 		.word	28858
+ 316 0160 3D700000 		.word	28733
+ 317 0164 C06F0000 		.word	28608
+ 318 0168 446F0000 		.word	28484
+ 319 016c C96E0000 		.word	28361
+ 320 0170 4E6E0000 		.word	28238
+ 321 0174 D36D0000 		.word	28115
+ 322 0178 5A6D0000 		.word	27994
+ 323 017c E16C0000 		.word	27873
+ 324 0180 686C0000 		.word	27752
+ 325 0184 F06B0000 		.word	27632
+ 326 0188 796B0000 		.word	27513
+ 327 018c 026B0000 		.word	27394
+ 328 0190 8C6A0000 		.word	27276
+ 329 0194 166A0000 		.word	27158
+ 330 0198 A1690000 		.word	27041
+ 331 019c 2D690000 		.word	26925
+ 332 01a0 B9680000 		.word	26809
+ 333 01a4 46680000 		.word	26694
+ 334 01a8 D3670000 		.word	26579
+ 335 01ac 61670000 		.word	26465
+ 336 01b0 EF660000 		.word	26351
+ 337 01b4 7E660000 		.word	26238
+ 338 01b8 0D660000 		.word	26125
+ 339 01bc 9D650000 		.word	26013
+ 340 01c0 2E650000 		.word	25902
+ 341 01c4 BF640000 		.word	25791
+ 342 01c8 51640000 		.word	25681
+ 343 01cc E3630000 		.word	25571
+ 344 01d0 76630000 		.word	25462
+ 345 01d4 09630000 		.word	25353
+ 346 01d8 9D620000 		.word	25245
+ 347 01dc 31620000 		.word	25137
+ 348 01e0 C6610000 		.word	25030
+ 349 01e4 5B610000 		.word	24923
+ 350 01e8 F1600000 		.word	24817
+ 351 01ec 87600000 		.word	24711
+ 352 01f0 1E600000 		.word	24606
+ 353 01f4 B55F0000 		.word	24501
+ 354 01f8 4D5F0000 		.word	24397
+ 355 01fc E65E0000 		.word	24294
+ 356 0200 7E5E0000 		.word	24190
+ 357 0204 185E0000 		.word	24088
+ 358 0208 B25D0000 		.word	23986
+ 359 020c 4C5D0000 		.word	23884
+ 360 0210 E75C0000 		.word	23783
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 11
+
+
+ 361 0214 825C0000 		.word	23682
+ 362 0218 1E5C0000 		.word	23582
+ 363 021c BA5B0000 		.word	23482
+ 364 0220 575B0000 		.word	23383
+ 365 0224 F45A0000 		.word	23284
+ 366 0228 925A0000 		.word	23186
+ 367 022c 305A0000 		.word	23088
+ 368 0230 CF590000 		.word	22991
+ 369 0234 6E590000 		.word	22894
+ 370 0238 0E590000 		.word	22798
+ 371 023c AE580000 		.word	22702
+ 372 0240 4E580000 		.word	22606
+ 373 0244 EF570000 		.word	22511
+ 374 0248 91570000 		.word	22417
+ 375 024c 32570000 		.word	22322
+ 376 0250 D5560000 		.word	22229
+ 377 0254 77560000 		.word	22135
+ 378 0258 1B560000 		.word	22043
+ 379 025c BE550000 		.word	21950
+ 380 0260 62550000 		.word	21858
+ 381 0264 07550000 		.word	21767
+ 382 0268 AC540000 		.word	21676
+ 383 026c 51540000 		.word	21585
+ 384 0270 F7530000 		.word	21495
+ 385 0274 9D530000 		.word	21405
+ 386 0278 44530000 		.word	21316
+ 387 027c EB520000 		.word	21227
+ 388 0280 93520000 		.word	21139
+ 389 0284 3B520000 		.word	21051
+ 390 0288 E3510000 		.word	20963
+ 391 028c 8C510000 		.word	20876
+ 392 0290 35510000 		.word	20789
+ 393 0294 DE500000 		.word	20702
+ 394 0298 88500000 		.word	20616
+ 395 029c 33500000 		.word	20531
+ 396 02a0 DE4F0000 		.word	20446
+ 397 02a4 894F0000 		.word	20361
+ 398 02a8 344F0000 		.word	20276
+ 399 02ac E04E0000 		.word	20192
+ 400 02b0 8D4E0000 		.word	20109
+ 401 02b4 3A4E0000 		.word	20026
+ 402 02b8 E74D0000 		.word	19943
+ 403 02bc 944D0000 		.word	19860
+ 404 02c0 424D0000 		.word	19778
+ 405 02c4 F14C0000 		.word	19697
+ 406 02c8 9F4C0000 		.word	19615
+ 407 02cc 4F4C0000 		.word	19535
+ 408 02d0 FE4B0000 		.word	19454
+ 409 02d4 AE4B0000 		.word	19374
+ 410 02d8 5E4B0000 		.word	19294
+ 411 02dc 0F4B0000 		.word	19215
+ 412 02e0 C04A0000 		.word	19136
+ 413 02e4 714A0000 		.word	19057
+ 414 02e8 234A0000 		.word	18979
+ 415 02ec D5490000 		.word	18901
+ 416 02f0 87490000 		.word	18823
+ 417 02f4 3A490000 		.word	18746
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 12
+
+
+ 418 02f8 ED480000 		.word	18669
+ 419 02fc A1480000 		.word	18593
+ 420 0300 55480000 		.word	18517
+ 421 0304 09480000 		.word	18441
+ 422 0308 BE470000 		.word	18366
+ 423 030c 73470000 		.word	18291
+ 424 0310 28470000 		.word	18216
+ 425 0314 DE460000 		.word	18142
+ 426 0318 94460000 		.word	18068
+ 427 031c 4A460000 		.word	17994
+ 428 0320 01460000 		.word	17921
+ 429 0324 B8450000 		.word	17848
+ 430 0328 6F450000 		.word	17775
+ 431 032c 27450000 		.word	17703
+ 432 0330 DF440000 		.word	17631
+ 433 0334 97440000 		.word	17559
+ 434 0338 50440000 		.word	17488
+ 435 033c 09440000 		.word	17417
+ 436 0340 C2430000 		.word	17346
+ 437 0344 7C430000 		.word	17276
+ 438 0348 36430000 		.word	17206
+ 439 034c F0420000 		.word	17136
+ 440 0350 AB420000 		.word	17067
+ 441 0354 66420000 		.word	16998
+ 442 0358 21420000 		.word	16929
+ 443 035c DC410000 		.word	16860
+ 444 0360 98410000 		.word	16792
+ 445 0364 55410000 		.word	16725
+ 446 0368 11410000 		.word	16657
+ 447 036c CE400000 		.word	16590
+ 448 0370 8B400000 		.word	16523
+ 449 0374 48400000 		.word	16456
+ 450 0378 06400000 		.word	16390
+ 451 037c C43F0000 		.word	16324
+ 452 0380 833F0000 		.word	16259
+ 453 0384 413F0000 		.word	16193
+ 454 0388 003F0000 		.word	16128
+ 455 038c C03E0000 		.word	16064
+ 456 0390 7F3E0000 		.word	15999
+ 457 0394 3F3E0000 		.word	15935
+ 458 0398 FF3D0000 		.word	15871
+ 459 039c C03D0000 		.word	15808
+ 460 03a0 803D0000 		.word	15744
+ 461 03a4 413D0000 		.word	15681
+ 462 03a8 033D0000 		.word	15619
+ 463 03ac C43C0000 		.word	15556
+ 464 03b0 863C0000 		.word	15494
+ 465 03b4 483C0000 		.word	15432
+ 466 03b8 0B3C0000 		.word	15371
+ 467 03bc CD3B0000 		.word	15309
+ 468 03c0 903B0000 		.word	15248
+ 469 03c4 543B0000 		.word	15188
+ 470 03c8 173B0000 		.word	15127
+ 471 03cc DB3A0000 		.word	15067
+ 472 03d0 9F3A0000 		.word	15007
+ 473 03d4 633A0000 		.word	14947
+ 474 03d8 283A0000 		.word	14888
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 13
+
+
+ 475 03dc ED390000 		.word	14829
+ 476 03e0 B2390000 		.word	14770
+ 477 03e4 78390000 		.word	14712
+ 478 03e8 3D390000 		.word	14653
+ 479 03ec 03390000 		.word	14595
+ 480 03f0 C9380000 		.word	14537
+ 481 03f4 90380000 		.word	14480
+ 482 03f8 57380000 		.word	14423
+ 483 03fc 1E380000 		.word	14366
+ 484 0400 E5370000 		.word	14309
+ 485 0404 AC370000 		.word	14252
+ 486 0408 74370000 		.word	14196
+ 487 040c 3C370000 		.word	14140
+ 488 0410 05370000 		.word	14085
+ 489 0414 CD360000 		.word	14029
+ 490 0418 96360000 		.word	13974
+ 491 041c 5F360000 		.word	13919
+ 492 0420 28360000 		.word	13864
+ 493 0424 F2350000 		.word	13810
+ 494 0428 BB350000 		.word	13755
+ 495 042c 85350000 		.word	13701
+ 496 0430 50350000 		.word	13648
+ 497 0434 1A350000 		.word	13594
+ 498 0438 E5340000 		.word	13541
+ 499 043c B0340000 		.word	13488
+ 500 0440 7B340000 		.word	13435
+ 501 0444 46340000 		.word	13382
+ 502 0448 12340000 		.word	13330
+ 503 044c DE330000 		.word	13278
+ 504 0450 AA330000 		.word	13226
+ 505 0454 77330000 		.word	13175
+ 506 0458 43330000 		.word	13123
+ 507 045c 10330000 		.word	13072
+ 508 0460 DD320000 		.word	13021
+ 509 0464 AA320000 		.word	12970
+ 510 0468 78320000 		.word	12920
+ 511 046c 45320000 		.word	12869
+ 512 0470 13320000 		.word	12819
+ 513 0474 E2310000 		.word	12770
+ 514 0478 B0310000 		.word	12720
+ 515 047c 7F310000 		.word	12671
+ 516 0480 4D310000 		.word	12621
+ 517 0484 1D310000 		.word	12573
+ 518 0488 EC300000 		.word	12524
+ 519 048c BB300000 		.word	12475
+ 520 0490 8B300000 		.word	12427
+ 521 0494 5B300000 		.word	12379
+ 522 0498 2B300000 		.word	12331
+ 523 049c FB2F0000 		.word	12283
+ 524 04a0 CC2F0000 		.word	12236
+ 525 04a4 9D2F0000 		.word	12189
+ 526 04a8 6E2F0000 		.word	12142
+ 527 04ac 3F2F0000 		.word	12095
+ 528 04b0 102F0000 		.word	12048
+ 529 04b4 E22E0000 		.word	12002
+ 530 04b8 B42E0000 		.word	11956
+ 531 04bc 862E0000 		.word	11910
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 14
+
+
+ 532 04c0 582E0000 		.word	11864
+ 533 04c4 2A2E0000 		.word	11818
+ 534 04c8 FD2D0000 		.word	11773
+ 535 04cc CF2D0000 		.word	11727
+ 536 04d0 A22D0000 		.word	11682
+ 537 04d4 762D0000 		.word	11638
+ 538 04d8 492D0000 		.word	11593
+ 539 04dc 1D2D0000 		.word	11549
+ 540 04e0 F02C0000 		.word	11504
+ 541 04e4 C42C0000 		.word	11460
+ 542 04e8 992C0000 		.word	11417
+ 543 04ec 6D2C0000 		.word	11373
+ 544 04f0 412C0000 		.word	11329
+ 545 04f4 162C0000 		.word	11286
+ 546 04f8 EB2B0000 		.word	11243
+ 547 04fc C02B0000 		.word	11200
+ 548 0500 952B0000 		.word	11157
+ 549 0504 6B2B0000 		.word	11115
+ 550 0508 412B0000 		.word	11073
+ 551 050c 162B0000 		.word	11030
+ 552 0510 ED2A0000 		.word	10989
+ 553 0514 C32A0000 		.word	10947
+ 554 0518 992A0000 		.word	10905
+ 555 051c 702A0000 		.word	10864
+ 556 0520 462A0000 		.word	10822
+ 557 0524 1D2A0000 		.word	10781
+ 558 0528 F5290000 		.word	10741
+ 559 052c CC290000 		.word	10700
+ 560 0530 A3290000 		.word	10659
+ 561 0534 7B290000 		.word	10619
+ 562 0538 53290000 		.word	10579
+ 563 053c 2B290000 		.word	10539
+ 564 0540 03290000 		.word	10499
+ 565 0544 DB280000 		.word	10459
+ 566 0548 B4280000 		.word	10420
+ 567 054c 8C280000 		.word	10380
+ 568 0550 65280000 		.word	10341
+ 569 0554 3E280000 		.word	10302
+ 570 0558 18280000 		.word	10264
+ 571 055c F1270000 		.word	10225
+ 572 0560 CA270000 		.word	10186
+ 573 0564 A4270000 		.word	10148
+ 574 0568 7E270000 		.word	10110
+ 575 056c 58270000 		.word	10072
+ 576 0570 32270000 		.word	10034
+ 577 0574 0C270000 		.word	9996
+ 578 0578 E7260000 		.word	9959
+ 579 057c C2260000 		.word	9922
+ 580 0580 9C260000 		.word	9884
+ 581 0584 77260000 		.word	9847
+ 582 0588 53260000 		.word	9811
+ 583 058c 2E260000 		.word	9774
+ 584 0590 09260000 		.word	9737
+ 585 0594 E5250000 		.word	9701
+ 586 0598 C1250000 		.word	9665
+ 587 059c 9D250000 		.word	9629
+ 588 05a0 79250000 		.word	9593
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 15
+
+
+ 589 05a4 55250000 		.word	9557
+ 590 05a8 31250000 		.word	9521
+ 591 05ac 0E250000 		.word	9486
+ 592 05b0 EB240000 		.word	9451
+ 593 05b4 C7240000 		.word	9415
+ 594 05b8 A4240000 		.word	9380
+ 595 05bc 82240000 		.word	9346
+ 596 05c0 5F240000 		.word	9311
+ 597 05c4 3C240000 		.word	9276
+ 598 05c8 1A240000 		.word	9242
+ 599 05cc F8230000 		.word	9208
+ 600 05d0 D5230000 		.word	9173
+ 601 05d4 B4230000 		.word	9140
+ 602 05d8 92230000 		.word	9106
+ 603 05dc 70230000 		.word	9072
+ 604 05e0 4E230000 		.word	9038
+ 605 05e4 2D230000 		.word	9005
+ 606 05e8 0C230000 		.word	8972
+ 607 05ec EB220000 		.word	8939
+ 608 05f0 CA220000 		.word	8906
+ 609 05f4 A9220000 		.word	8873
+ 610 05f8 88220000 		.word	8840
+ 611 05fc 68220000 		.word	8808
+ 612 0600 47220000 		.word	8775
+ 613 0604 27220000 		.word	8743
+ 614 0608 07220000 		.word	8711
+ 615 060c E7210000 		.word	8679
+ 616 0610 C7210000 		.word	8647
+ 617 0614 A7210000 		.word	8615
+ 618 0618 87210000 		.word	8583
+ 619 061c 68210000 		.word	8552
+ 620 0620 48210000 		.word	8520
+ 621 0624 29210000 		.word	8489
+ 622 0628 0A210000 		.word	8458
+ 623 062c EB200000 		.word	8427
+ 624 0630 CC200000 		.word	8396
+ 625 0634 AE200000 		.word	8366
+ 626 0638 8F200000 		.word	8335
+ 627 063c 71200000 		.word	8305
+ 628 0640 52200000 		.word	8274
+ 629 0644 34200000 		.word	8244
+ 630 0648 16200000 		.word	8214
+ 631 064c F81F0000 		.word	8184
+ 632 0650 DA1F0000 		.word	8154
+ 633 0654 BD1F0000 		.word	8125
+ 634 0658 9F1F0000 		.word	8095
+ 635 065c 821F0000 		.word	8066
+ 636 0660 641F0000 		.word	8036
+ 637 0664 471F0000 		.word	8007
+ 638 0668 2A1F0000 		.word	7978
+ 639 066c 0D1F0000 		.word	7949
+ 640 0670 F01E0000 		.word	7920
+ 641 0674 D41E0000 		.word	7892
+ 642 0678 B71E0000 		.word	7863
+ 643 067c 9A1E0000 		.word	7834
+ 644 0680 7E1E0000 		.word	7806
+ 645 0684 621E0000 		.word	7778
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 16
+
+
+ 646 0688 461E0000 		.word	7750
+ 647 068c 2A1E0000 		.word	7722
+ 648 0690 0E1E0000 		.word	7694
+ 649 0694 F21D0000 		.word	7666
+ 650 0698 D61D0000 		.word	7638
+ 651 069c BB1D0000 		.word	7611
+ 652 06a0 9F1D0000 		.word	7583
+ 653 06a4 841D0000 		.word	7556
+ 654 06a8 691D0000 		.word	7529
+ 655 06ac 4E1D0000 		.word	7502
+ 656 06b0 331D0000 		.word	7475
+ 657 06b4 181D0000 		.word	7448
+ 658 06b8 FD1C0000 		.word	7421
+ 659 06bc E31C0000 		.word	7395
+ 660 06c0 C81C0000 		.word	7368
+ 661 06c4 AE1C0000 		.word	7342
+ 662 06c8 931C0000 		.word	7315
+ 663 06cc 791C0000 		.word	7289
+ 664 06d0 5F1C0000 		.word	7263
+ 665 06d4 451C0000 		.word	7237
+ 666 06d8 2B1C0000 		.word	7211
+ 667 06dc 111C0000 		.word	7185
+ 668 06e0 F81B0000 		.word	7160
+ 669 06e4 DE1B0000 		.word	7134
+ 670 06e8 C51B0000 		.word	7109
+ 671 06ec AB1B0000 		.word	7083
+ 672 06f0 921B0000 		.word	7058
+ 673 06f4 791B0000 		.word	7033
+ 674 06f8 601B0000 		.word	7008
+ 675 06fc 471B0000 		.word	6983
+ 676 0700 2E1B0000 		.word	6958
+ 677 0704 151B0000 		.word	6933
+ 678 0708 FD1A0000 		.word	6909
+ 679 070c E41A0000 		.word	6884
+ 680 0710 CC1A0000 		.word	6860
+ 681 0714 B31A0000 		.word	6835
+ 682 0718 9B1A0000 		.word	6811
+ 683 071c 831A0000 		.word	6787
+ 684 0720 6B1A0000 		.word	6763
+ 685 0724 531A0000 		.word	6739
+ 686 0728 3B1A0000 		.word	6715
+ 687 072c 231A0000 		.word	6691
+ 688 0730 0C1A0000 		.word	6668
+ 689 0734 F4190000 		.word	6644
+ 690 0738 DD190000 		.word	6621
+ 691 073c C5190000 		.word	6597
+ 692 0740 AE190000 		.word	6574
+ 693 0744 97190000 		.word	6551
+ 694 0748 80190000 		.word	6528
+ 695 074c 69190000 		.word	6505
+ 696 0750 52190000 		.word	6482
+ 697 0754 3B190000 		.word	6459
+ 698 0758 24190000 		.word	6436
+ 699 075c 0E190000 		.word	6414
+ 700 0760 F7180000 		.word	6391
+ 701 0764 E1180000 		.word	6369
+ 702 0768 CA180000 		.word	6346
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 17
+
+
+ 703 076c B4180000 		.word	6324
+ 704 0770 9E180000 		.word	6302
+ 705 0774 88180000 		.word	6280
+ 706 0778 72180000 		.word	6258
+ 707 077c 5C180000 		.word	6236
+ 708 0780 46180000 		.word	6214
+ 709 0784 30180000 		.word	6192
+ 710 0788 1B180000 		.word	6171
+ 711 078c 05180000 		.word	6149
+ 712 0790 F0170000 		.word	6128
+ 713 0794 DA170000 		.word	6106
+ 714 0798 C5170000 		.word	6085
+ 715 079c B0170000 		.word	6064
+ 716 07a0 9B170000 		.word	6043
+ 717 07a4 86170000 		.word	6022
+ 718 07a8 71170000 		.word	6001
+ 719 07ac 5C170000 		.word	5980
+ 720 07b0 47170000 		.word	5959
+ 721 07b4 32170000 		.word	5938
+ 722 07b8 1E170000 		.word	5918
+ 723 07bc 09170000 		.word	5897
+ 724 07c0 F5160000 		.word	5877
+ 725 07c4 E0160000 		.word	5856
+ 726 07c8 CC160000 		.word	5836
+ 727 07cc B8160000 		.word	5816
+ 728 07d0 A4160000 		.word	5796
+ 729 07d4 90160000 		.word	5776
+ 730 07d8 7C160000 		.word	5756
+ 731 07dc 68160000 		.word	5736
+ 732 07e0 54160000 		.word	5716
+ 733 07e4 40160000 		.word	5696
+ 734 07e8 2D160000 		.word	5677
+ 735 07ec 19160000 		.word	5657
+ 736 07f0 06160000 		.word	5638
+ 737 07f4 F2150000 		.word	5618
+ 738 07f8 DF150000 		.word	5599
+ 739 07fc CB150000 		.word	5579
+ 740 0800 B8150000 		.word	5560
+ 741 0804 A5150000 		.word	5541
+ 742 0808 92150000 		.word	5522
+ 743 080c 7F150000 		.word	5503
+ 744 0810 6C150000 		.word	5484
+ 745 0814 59150000 		.word	5465
+ 746 0818 47150000 		.word	5447
+ 747 081c 34150000 		.word	5428
+ 748 0820 21150000 		.word	5409
+ 749 0824 0F150000 		.word	5391
+ 750 0828 FC140000 		.word	5372
+ 751 082c EA140000 		.word	5354
+ 752 0830 D8140000 		.word	5336
+ 753 0834 C6140000 		.word	5318
+ 754 0838 B3140000 		.word	5299
+ 755 083c A1140000 		.word	5281
+ 756 0840 8F140000 		.word	5263
+ 757 0844 7D140000 		.word	5245
+ 758 0848 6C140000 		.word	5228
+ 759 084c 5A140000 		.word	5210
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 18
+
+
+ 760 0850 48140000 		.word	5192
+ 761 0854 36140000 		.word	5174
+ 762 0858 25140000 		.word	5157
+ 763 085c 13140000 		.word	5139
+ 764 0860 02140000 		.word	5122
+ 765 0864 F0130000 		.word	5104
+ 766 0868 DF130000 		.word	5087
+ 767 086c CE130000 		.word	5070
+ 768 0870 BD130000 		.word	5053
+ 769 0874 AB130000 		.word	5035
+ 770 0878 9A130000 		.word	5018
+ 771 087c 89130000 		.word	5001
+ 772 0880 79130000 		.word	4985
+ 773 0884 68130000 		.word	4968
+ 774 0888 57130000 		.word	4951
+ 775 088c 46130000 		.word	4934
+ 776 0890 35130000 		.word	4917
+ 777 0894 25130000 		.word	4901
+ 778 0898 14130000 		.word	4884
+ 779 089c 04130000 		.word	4868
+ 780 08a0 F4120000 		.word	4852
+ 781 08a4 E3120000 		.word	4835
+ 782 08a8 D3120000 		.word	4819
+ 783 08ac C3120000 		.word	4803
+ 784 08b0 B3120000 		.word	4787
+ 785 08b4 A2120000 		.word	4770
+ 786 08b8 92120000 		.word	4754
+ 787 08bc 83120000 		.word	4739
+ 788 08c0 73120000 		.word	4723
+ 789 08c4 63120000 		.word	4707
+ 790 08c8 53120000 		.word	4691
+ 791 08cc 43120000 		.word	4675
+ 792 08d0 34120000 		.word	4660
+ 793 08d4 24120000 		.word	4644
+ 794 08d8 15120000 		.word	4629
+ 795 08dc 05120000 		.word	4613
+ 796 08e0 F6110000 		.word	4598
+ 797 08e4 E6110000 		.word	4582
+ 798 08e8 D7110000 		.word	4567
+ 799 08ec C8110000 		.word	4552
+ 800 08f0 B9110000 		.word	4537
+ 801 08f4 A9110000 		.word	4521
+ 802 08f8 9A110000 		.word	4506
+ 803 08fc 8B110000 		.word	4491
+ 804 0900 7C110000 		.word	4476
+ 805 0904 6E110000 		.word	4462
+ 806 0908 5F110000 		.word	4447
+ 807 090c 50110000 		.word	4432
+ 808 0910 41110000 		.word	4417
+ 809 0914 33110000 		.word	4403
+ 810 0918 24110000 		.word	4388
+ 811 091c 15110000 		.word	4373
+ 812 0920 07110000 		.word	4359
+ 813 0924 F9100000 		.word	4345
+ 814 0928 EA100000 		.word	4330
+ 815 092c DC100000 		.word	4316
+ 816 0930 CE100000 		.word	4302
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 19
+
+
+ 817 0934 BF100000 		.word	4287
+ 818 0938 B1100000 		.word	4273
+ 819 093c A3100000 		.word	4259
+ 820 0940 95100000 		.word	4245
+ 821 0944 87100000 		.word	4231
+ 822 0948 79100000 		.word	4217
+ 823 094c 6B100000 		.word	4203
+ 824 0950 5D100000 		.word	4189
+ 825 0954 50100000 		.word	4176
+ 826 0958 42100000 		.word	4162
+ 827 095c 34100000 		.word	4148
+ 828 0960 27100000 		.word	4135
+ 829 0964 19100000 		.word	4121
+ 830 0968 0B100000 		.word	4107
+ 831 096c FE0F0000 		.word	4094
+ 832 0970 F10F0000 		.word	4081
+ 833 0974 E30F0000 		.word	4067
+ 834 0978 D60F0000 		.word	4054
+ 835 097c C90F0000 		.word	4041
+ 836 0980 BB0F0000 		.word	4027
+ 837 0984 AE0F0000 		.word	4014
+ 838 0988 A10F0000 		.word	4001
+ 839 098c 940F0000 		.word	3988
+ 840 0990 870F0000 		.word	3975
+ 841 0994 7A0F0000 		.word	3962
+ 842 0998 6D0F0000 		.word	3949
+ 843 099c 600F0000 		.word	3936
+ 844 09a0 530F0000 		.word	3923
+ 845 09a4 470F0000 		.word	3911
+ 846 09a8 3A0F0000 		.word	3898
+ 847 09ac 2D0F0000 		.word	3885
+ 848 09b0 200F0000 		.word	3872
+ 849 09b4 140F0000 		.word	3860
+ 850 09b8 070F0000 		.word	3847
+ 851 09bc FB0E0000 		.word	3835
+ 852 09c0 EE0E0000 		.word	3822
+ 853 09c4 E20E0000 		.word	3810
+ 854 09c8 D60E0000 		.word	3798
+ 855 09cc C90E0000 		.word	3785
+ 856 09d0 BD0E0000 		.word	3773
+ 857 09d4 B10E0000 		.word	3761
+ 858 09d8 A50E0000 		.word	3749
+ 859 09dc 990E0000 		.word	3737
+ 860 09e0 8D0E0000 		.word	3725
+ 861 09e4 800E0000 		.word	3712
+ 862 09e8 740E0000 		.word	3700
+ 863 09ec 690E0000 		.word	3689
+ 864 09f0 5D0E0000 		.word	3677
+ 865 09f4 510E0000 		.word	3665
+ 866 09f8 450E0000 		.word	3653
+ 867 09fc 390E0000 		.word	3641
+ 868 0a00 2E0E0000 		.word	3630
+ 869 0a04 220E0000 		.word	3618
+ 870 0a08 160E0000 		.word	3606
+ 871 0a0c 0B0E0000 		.word	3595
+ 872 0a10 FF0D0000 		.word	3583
+ 873 0a14 F40D0000 		.word	3572
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 20
+
+
+ 874 0a18 E80D0000 		.word	3560
+ 875 0a1c DD0D0000 		.word	3549
+ 876 0a20 D10D0000 		.word	3537
+ 877 0a24 C60D0000 		.word	3526
+ 878 0a28 BB0D0000 		.word	3515
+ 879 0a2c AF0D0000 		.word	3503
+ 880 0a30 A40D0000 		.word	3492
+ 881 0a34 990D0000 		.word	3481
+ 882 0a38 8E0D0000 		.word	3470
+ 883 0a3c 830D0000 		.word	3459
+ 884 0a40 780D0000 		.word	3448
+ 885 0a44 6D0D0000 		.word	3437
+ 886 0a48 620D0000 		.word	3426
+ 887 0a4c 570D0000 		.word	3415
+ 888 0a50 4C0D0000 		.word	3404
+ 889 0a54 410D0000 		.word	3393
+ 890 0a58 360D0000 		.word	3382
+ 891 0a5c 2C0D0000 		.word	3372
+ 892 0a60 210D0000 		.word	3361
+ 893 0a64 160D0000 		.word	3350
+ 894 0a68 0C0D0000 		.word	3340
+ 895 0a6c 010D0000 		.word	3329
+ 896 0a70 F60C0000 		.word	3318
+ 897 0a74 EC0C0000 		.word	3308
+ 898 0a78 E10C0000 		.word	3297
+ 899 0a7c D70C0000 		.word	3287
+ 900 0a80 CD0C0000 		.word	3277
+ 901 0a84 C20C0000 		.word	3266
+ 902 0a88 B80C0000 		.word	3256
+ 903 0a8c AE0C0000 		.word	3246
+ 904 0a90 A30C0000 		.word	3235
+ 905 0a94 990C0000 		.word	3225
+ 906 0a98 8F0C0000 		.word	3215
+ 907 0a9c 850C0000 		.word	3205
+ 908 0aa0 7B0C0000 		.word	3195
+ 909 0aa4 710C0000 		.word	3185
+ 910 0aa8 660C0000 		.word	3174
+ 911 0aac 5C0C0000 		.word	3164
+ 912 0ab0 530C0000 		.word	3155
+ 913 0ab4 490C0000 		.word	3145
+ 914 0ab8 3F0C0000 		.word	3135
+ 915 0abc 350C0000 		.word	3125
+ 916 0ac0 2B0C0000 		.word	3115
+ 917 0ac4 210C0000 		.word	3105
+ 918 0ac8 180C0000 		.word	3096
+ 919 0acc 0E0C0000 		.word	3086
+ 920 0ad0 040C0000 		.word	3076
+ 921 0ad4 FB0B0000 		.word	3067
+ 922 0ad8 F10B0000 		.word	3057
+ 923 0adc E70B0000 		.word	3047
+ 924 0ae0 DE0B0000 		.word	3038
+ 925 0ae4 D40B0000 		.word	3028
+ 926 0ae8 CB0B0000 		.word	3019
+ 927 0aec C10B0000 		.word	3009
+ 928 0af0 B80B0000 		.word	3000
+ 929              		.text
+ 930              	.Letext0:
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 21
+
+
+ 931              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 932              		.section	.debug_info,"",%progbits
+ 933              	.Ldebug_info0:
+ 934 0000 94010000 		.4byte	0x194
+ 935 0004 0400     		.2byte	0x4
+ 936 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 937 000a 04       		.byte	0x4
+ 938 000b 01       		.uleb128 0x1
+ 939 000c 3E010000 		.4byte	.LASF27
+ 940 0010 01       		.byte	0x1
+ 941 0011 C5000000 		.4byte	.LASF28
+ 942 0015 92000000 		.4byte	.LASF29
+ 943 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 944 001d 00000000 		.4byte	0
+ 945 0021 00000000 		.4byte	.Ldebug_line0
+ 946 0025 02       		.uleb128 0x2
+ 947 0026 01       		.byte	0x1
+ 948 0027 06       		.byte	0x6
+ 949 0028 FD010000 		.4byte	.LASF0
+ 950 002c 02       		.uleb128 0x2
+ 951 002d 01       		.byte	0x1
+ 952 002e 08       		.byte	0x8
+ 953 002f 39000000 		.4byte	.LASF1
+ 954 0033 02       		.uleb128 0x2
+ 955 0034 02       		.byte	0x2
+ 956 0035 05       		.byte	0x5
+ 957 0036 CC010000 		.4byte	.LASF2
+ 958 003a 02       		.uleb128 0x2
+ 959 003b 02       		.byte	0x2
+ 960 003c 07       		.byte	0x7
+ 961 003d 1A000000 		.4byte	.LASF3
+ 962 0041 02       		.uleb128 0x2
+ 963 0042 04       		.byte	0x4
+ 964 0043 05       		.byte	0x5
+ 965 0044 EF010000 		.4byte	.LASF4
+ 966 0048 02       		.uleb128 0x2
+ 967 0049 04       		.byte	0x4
+ 968 004a 07       		.byte	0x7
+ 969 004b 4D000000 		.4byte	.LASF5
+ 970 004f 02       		.uleb128 0x2
+ 971 0050 08       		.byte	0x8
+ 972 0051 05       		.byte	0x5
+ 973 0052 2B010000 		.4byte	.LASF6
+ 974 0056 02       		.uleb128 0x2
+ 975 0057 08       		.byte	0x8
+ 976 0058 07       		.byte	0x7
+ 977 0059 FF000000 		.4byte	.LASF7
+ 978 005d 03       		.uleb128 0x3
+ 979 005e 04       		.byte	0x4
+ 980 005f 05       		.byte	0x5
+ 981 0060 696E7400 		.ascii	"int\000"
+ 982 0064 02       		.uleb128 0x2
+ 983 0065 04       		.byte	0x4
+ 984 0066 07       		.byte	0x7
+ 985 0067 F2000000 		.4byte	.LASF8
+ 986 006b 04       		.uleb128 0x4
+ 987 006c BE000000 		.4byte	.LASF9
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 22
+
+
+ 988 0070 02       		.byte	0x2
+ 989 0071 9901     		.2byte	0x199
+ 990 0073 3A000000 		.4byte	0x3a
+ 991 0077 04       		.uleb128 0x4
+ 992 0078 EB000000 		.4byte	.LASF10
+ 993 007c 02       		.byte	0x2
+ 994 007d 9A01     		.2byte	0x19a
+ 995 007f 48000000 		.4byte	0x48
+ 996 0083 04       		.uleb128 0x4
+ 997 0084 47000000 		.4byte	.LASF11
+ 998 0088 02       		.byte	0x2
+ 999 0089 9C01     		.2byte	0x19c
+ 1000 008b 33000000 		.4byte	0x33
+ 1001 008f 04       		.uleb128 0x4
+ 1002 0090 64000000 		.4byte	.LASF12
+ 1003 0094 02       		.byte	0x2
+ 1004 0095 9D01     		.2byte	0x19d
+ 1005 0097 41000000 		.4byte	0x41
+ 1006 009b 02       		.uleb128 0x2
+ 1007 009c 04       		.byte	0x4
+ 1008 009d 04       		.byte	0x4
+ 1009 009e 33000000 		.4byte	.LASF13
+ 1010 00a2 02       		.uleb128 0x2
+ 1011 00a3 08       		.byte	0x8
+ 1012 00a4 04       		.byte	0x4
+ 1013 00a5 8B000000 		.4byte	.LASF14
+ 1014 00a9 02       		.uleb128 0x2
+ 1015 00aa 01       		.byte	0x1
+ 1016 00ab 08       		.byte	0x8
+ 1017 00ac 39010000 		.4byte	.LASF15
+ 1018 00b0 02       		.uleb128 0x2
+ 1019 00b1 04       		.byte	0x4
+ 1020 00b2 07       		.byte	0x7
+ 1021 00b3 22010000 		.4byte	.LASF16
+ 1022 00b7 05       		.uleb128 0x5
+ 1023 00b8 D6010000 		.4byte	.LASF21
+ 1024 00bc 01       		.byte	0x1
+ 1025 00bd 2A       		.byte	0x2a
+ 1026 00be 77000000 		.4byte	0x77
+ 1027 00c2 00000000 		.4byte	.LFB0
+ 1028 00c6 2C000000 		.4byte	.LFE0-.LFB0
+ 1029 00ca 01       		.uleb128 0x1
+ 1030 00cb 9C       		.byte	0x9c
+ 1031 00cc 0D010000 		.4byte	0x10d
+ 1032 00d0 06       		.uleb128 0x6
+ 1033 00d1 0F000000 		.4byte	.LASF17
+ 1034 00d5 01       		.byte	0x1
+ 1035 00d6 2A       		.byte	0x2a
+ 1036 00d7 83000000 		.4byte	0x83
+ 1037 00db 00000000 		.4byte	.LLST0
+ 1038 00df 06       		.uleb128 0x6
+ 1039 00e0 16010000 		.4byte	.LASF18
+ 1040 00e4 01       		.byte	0x1
+ 1041 00e5 2A       		.byte	0x2a
+ 1042 00e6 83000000 		.4byte	0x83
+ 1043 00ea 21000000 		.4byte	.LLST1
+ 1044 00ee 07       		.uleb128 0x7
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 23
+
+
+ 1045 00ef F8010000 		.4byte	.LASF19
+ 1046 00f3 01       		.byte	0x1
+ 1047 00f4 2D       		.byte	0x2d
+ 1048 00f5 8F000000 		.4byte	0x8f
+ 1049 00f9 42000000 		.4byte	.LLST2
+ 1050 00fd 07       		.uleb128 0x7
+ 1051 00fe 5F000000 		.4byte	.LASF20
+ 1052 0102 01       		.byte	0x1
+ 1053 0103 2E       		.byte	0x2e
+ 1054 0104 83000000 		.4byte	0x83
+ 1055 0108 6B000000 		.4byte	.LLST3
+ 1056 010c 00       		.byte	0
+ 1057 010d 08       		.uleb128 0x8
+ 1058 010e 6A000000 		.4byte	.LASF22
+ 1059 0112 01       		.byte	0x1
+ 1060 0113 56       		.byte	0x56
+ 1061 0114 83000000 		.4byte	0x83
+ 1062 0118 00000000 		.4byte	.LFB1
+ 1063 011c 98000000 		.4byte	.LFE1-.LFB1
+ 1064 0120 01       		.uleb128 0x1
+ 1065 0121 9C       		.byte	0x9c
+ 1066 0122 81010000 		.4byte	0x181
+ 1067 0126 06       		.uleb128 0x6
+ 1068 0127 F8010000 		.4byte	.LASF19
+ 1069 012b 01       		.byte	0x1
+ 1070 012c 56       		.byte	0x56
+ 1071 012d 77000000 		.4byte	0x77
+ 1072 0131 A2000000 		.4byte	.LLST4
+ 1073 0135 09       		.uleb128 0x9
+ 1074 0136 84000000 		.4byte	.LASF23
+ 1075 013a 01       		.byte	0x1
+ 1076 013b 58       		.byte	0x58
+ 1077 013c 83000000 		.4byte	0x83
+ 1078 0140 01       		.uleb128 0x1
+ 1079 0141 50       		.byte	0x50
+ 1080 0142 09       		.uleb128 0x9
+ 1081 0143 00000000 		.4byte	.LASF24
+ 1082 0147 01       		.byte	0x1
+ 1083 0148 59       		.byte	0x59
+ 1084 0149 92010000 		.4byte	0x192
+ 1085 014d 05       		.uleb128 0x5
+ 1086 014e 03       		.byte	0x3
+ 1087 014f 00000000 		.4byte	Thermistor_LUT.4694
+ 1088 0153 0A       		.uleb128 0xa
+ 1089 0154 6D696400 		.ascii	"mid\000"
+ 1090 0158 01       		.byte	0x1
+ 1091 0159 A1       		.byte	0xa1
+ 1092 015a 6B000000 		.4byte	0x6b
+ 1093 015e C3000000 		.4byte	.LLST5
+ 1094 0162 07       		.uleb128 0x7
+ 1095 0163 2D000000 		.4byte	.LASF25
+ 1096 0167 01       		.byte	0x1
+ 1097 0168 A2       		.byte	0xa2
+ 1098 0169 6B000000 		.4byte	0x6b
+ 1099 016d EE000000 		.4byte	.LLST6
+ 1100 0171 07       		.uleb128 0x7
+ 1101 0172 09020000 		.4byte	.LASF26
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 24
+
+
+ 1102 0176 01       		.byte	0x1
+ 1103 0177 A3       		.byte	0xa3
+ 1104 0178 6B000000 		.4byte	0x6b
+ 1105 017c 0D010000 		.4byte	.LLST7
+ 1106 0180 00       		.byte	0
+ 1107 0181 0B       		.uleb128 0xb
+ 1108 0182 77000000 		.4byte	0x77
+ 1109 0186 92010000 		.4byte	0x192
+ 1110 018a 0C       		.uleb128 0xc
+ 1111 018b B0000000 		.4byte	0xb0
+ 1112 018f BC02     		.2byte	0x2bc
+ 1113 0191 00       		.byte	0
+ 1114 0192 0D       		.uleb128 0xd
+ 1115 0193 81010000 		.4byte	0x181
+ 1116 0197 00       		.byte	0
+ 1117              		.section	.debug_abbrev,"",%progbits
+ 1118              	.Ldebug_abbrev0:
+ 1119 0000 01       		.uleb128 0x1
+ 1120 0001 11       		.uleb128 0x11
+ 1121 0002 01       		.byte	0x1
+ 1122 0003 25       		.uleb128 0x25
+ 1123 0004 0E       		.uleb128 0xe
+ 1124 0005 13       		.uleb128 0x13
+ 1125 0006 0B       		.uleb128 0xb
+ 1126 0007 03       		.uleb128 0x3
+ 1127 0008 0E       		.uleb128 0xe
+ 1128 0009 1B       		.uleb128 0x1b
+ 1129 000a 0E       		.uleb128 0xe
+ 1130 000b 55       		.uleb128 0x55
+ 1131 000c 17       		.uleb128 0x17
+ 1132 000d 11       		.uleb128 0x11
+ 1133 000e 01       		.uleb128 0x1
+ 1134 000f 10       		.uleb128 0x10
+ 1135 0010 17       		.uleb128 0x17
+ 1136 0011 00       		.byte	0
+ 1137 0012 00       		.byte	0
+ 1138 0013 02       		.uleb128 0x2
+ 1139 0014 24       		.uleb128 0x24
+ 1140 0015 00       		.byte	0
+ 1141 0016 0B       		.uleb128 0xb
+ 1142 0017 0B       		.uleb128 0xb
+ 1143 0018 3E       		.uleb128 0x3e
+ 1144 0019 0B       		.uleb128 0xb
+ 1145 001a 03       		.uleb128 0x3
+ 1146 001b 0E       		.uleb128 0xe
+ 1147 001c 00       		.byte	0
+ 1148 001d 00       		.byte	0
+ 1149 001e 03       		.uleb128 0x3
+ 1150 001f 24       		.uleb128 0x24
+ 1151 0020 00       		.byte	0
+ 1152 0021 0B       		.uleb128 0xb
+ 1153 0022 0B       		.uleb128 0xb
+ 1154 0023 3E       		.uleb128 0x3e
+ 1155 0024 0B       		.uleb128 0xb
+ 1156 0025 03       		.uleb128 0x3
+ 1157 0026 08       		.uleb128 0x8
+ 1158 0027 00       		.byte	0
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 25
+
+
+ 1159 0028 00       		.byte	0
+ 1160 0029 04       		.uleb128 0x4
+ 1161 002a 16       		.uleb128 0x16
+ 1162 002b 00       		.byte	0
+ 1163 002c 03       		.uleb128 0x3
+ 1164 002d 0E       		.uleb128 0xe
+ 1165 002e 3A       		.uleb128 0x3a
+ 1166 002f 0B       		.uleb128 0xb
+ 1167 0030 3B       		.uleb128 0x3b
+ 1168 0031 05       		.uleb128 0x5
+ 1169 0032 49       		.uleb128 0x49
+ 1170 0033 13       		.uleb128 0x13
+ 1171 0034 00       		.byte	0
+ 1172 0035 00       		.byte	0
+ 1173 0036 05       		.uleb128 0x5
+ 1174 0037 2E       		.uleb128 0x2e
+ 1175 0038 01       		.byte	0x1
+ 1176 0039 3F       		.uleb128 0x3f
+ 1177 003a 19       		.uleb128 0x19
+ 1178 003b 03       		.uleb128 0x3
+ 1179 003c 0E       		.uleb128 0xe
+ 1180 003d 3A       		.uleb128 0x3a
+ 1181 003e 0B       		.uleb128 0xb
+ 1182 003f 3B       		.uleb128 0x3b
+ 1183 0040 0B       		.uleb128 0xb
+ 1184 0041 27       		.uleb128 0x27
+ 1185 0042 19       		.uleb128 0x19
+ 1186 0043 49       		.uleb128 0x49
+ 1187 0044 13       		.uleb128 0x13
+ 1188 0045 11       		.uleb128 0x11
+ 1189 0046 01       		.uleb128 0x1
+ 1190 0047 12       		.uleb128 0x12
+ 1191 0048 06       		.uleb128 0x6
+ 1192 0049 40       		.uleb128 0x40
+ 1193 004a 18       		.uleb128 0x18
+ 1194 004b 9642     		.uleb128 0x2116
+ 1195 004d 19       		.uleb128 0x19
+ 1196 004e 01       		.uleb128 0x1
+ 1197 004f 13       		.uleb128 0x13
+ 1198 0050 00       		.byte	0
+ 1199 0051 00       		.byte	0
+ 1200 0052 06       		.uleb128 0x6
+ 1201 0053 05       		.uleb128 0x5
+ 1202 0054 00       		.byte	0
+ 1203 0055 03       		.uleb128 0x3
+ 1204 0056 0E       		.uleb128 0xe
+ 1205 0057 3A       		.uleb128 0x3a
+ 1206 0058 0B       		.uleb128 0xb
+ 1207 0059 3B       		.uleb128 0x3b
+ 1208 005a 0B       		.uleb128 0xb
+ 1209 005b 49       		.uleb128 0x49
+ 1210 005c 13       		.uleb128 0x13
+ 1211 005d 02       		.uleb128 0x2
+ 1212 005e 17       		.uleb128 0x17
+ 1213 005f 00       		.byte	0
+ 1214 0060 00       		.byte	0
+ 1215 0061 07       		.uleb128 0x7
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 26
+
+
+ 1216 0062 34       		.uleb128 0x34
+ 1217 0063 00       		.byte	0
+ 1218 0064 03       		.uleb128 0x3
+ 1219 0065 0E       		.uleb128 0xe
+ 1220 0066 3A       		.uleb128 0x3a
+ 1221 0067 0B       		.uleb128 0xb
+ 1222 0068 3B       		.uleb128 0x3b
+ 1223 0069 0B       		.uleb128 0xb
+ 1224 006a 49       		.uleb128 0x49
+ 1225 006b 13       		.uleb128 0x13
+ 1226 006c 02       		.uleb128 0x2
+ 1227 006d 17       		.uleb128 0x17
+ 1228 006e 00       		.byte	0
+ 1229 006f 00       		.byte	0
+ 1230 0070 08       		.uleb128 0x8
+ 1231 0071 2E       		.uleb128 0x2e
+ 1232 0072 01       		.byte	0x1
+ 1233 0073 3F       		.uleb128 0x3f
+ 1234 0074 19       		.uleb128 0x19
+ 1235 0075 03       		.uleb128 0x3
+ 1236 0076 0E       		.uleb128 0xe
+ 1237 0077 3A       		.uleb128 0x3a
+ 1238 0078 0B       		.uleb128 0xb
+ 1239 0079 3B       		.uleb128 0x3b
+ 1240 007a 0B       		.uleb128 0xb
+ 1241 007b 27       		.uleb128 0x27
+ 1242 007c 19       		.uleb128 0x19
+ 1243 007d 49       		.uleb128 0x49
+ 1244 007e 13       		.uleb128 0x13
+ 1245 007f 11       		.uleb128 0x11
+ 1246 0080 01       		.uleb128 0x1
+ 1247 0081 12       		.uleb128 0x12
+ 1248 0082 06       		.uleb128 0x6
+ 1249 0083 40       		.uleb128 0x40
+ 1250 0084 18       		.uleb128 0x18
+ 1251 0085 9742     		.uleb128 0x2117
+ 1252 0087 19       		.uleb128 0x19
+ 1253 0088 01       		.uleb128 0x1
+ 1254 0089 13       		.uleb128 0x13
+ 1255 008a 00       		.byte	0
+ 1256 008b 00       		.byte	0
+ 1257 008c 09       		.uleb128 0x9
+ 1258 008d 34       		.uleb128 0x34
+ 1259 008e 00       		.byte	0
+ 1260 008f 03       		.uleb128 0x3
+ 1261 0090 0E       		.uleb128 0xe
+ 1262 0091 3A       		.uleb128 0x3a
+ 1263 0092 0B       		.uleb128 0xb
+ 1264 0093 3B       		.uleb128 0x3b
+ 1265 0094 0B       		.uleb128 0xb
+ 1266 0095 49       		.uleb128 0x49
+ 1267 0096 13       		.uleb128 0x13
+ 1268 0097 02       		.uleb128 0x2
+ 1269 0098 18       		.uleb128 0x18
+ 1270 0099 00       		.byte	0
+ 1271 009a 00       		.byte	0
+ 1272 009b 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 27
+
+
+ 1273 009c 34       		.uleb128 0x34
+ 1274 009d 00       		.byte	0
+ 1275 009e 03       		.uleb128 0x3
+ 1276 009f 08       		.uleb128 0x8
+ 1277 00a0 3A       		.uleb128 0x3a
+ 1278 00a1 0B       		.uleb128 0xb
+ 1279 00a2 3B       		.uleb128 0x3b
+ 1280 00a3 0B       		.uleb128 0xb
+ 1281 00a4 49       		.uleb128 0x49
+ 1282 00a5 13       		.uleb128 0x13
+ 1283 00a6 02       		.uleb128 0x2
+ 1284 00a7 17       		.uleb128 0x17
+ 1285 00a8 00       		.byte	0
+ 1286 00a9 00       		.byte	0
+ 1287 00aa 0B       		.uleb128 0xb
+ 1288 00ab 01       		.uleb128 0x1
+ 1289 00ac 01       		.byte	0x1
+ 1290 00ad 49       		.uleb128 0x49
+ 1291 00ae 13       		.uleb128 0x13
+ 1292 00af 01       		.uleb128 0x1
+ 1293 00b0 13       		.uleb128 0x13
+ 1294 00b1 00       		.byte	0
+ 1295 00b2 00       		.byte	0
+ 1296 00b3 0C       		.uleb128 0xc
+ 1297 00b4 21       		.uleb128 0x21
+ 1298 00b5 00       		.byte	0
+ 1299 00b6 49       		.uleb128 0x49
+ 1300 00b7 13       		.uleb128 0x13
+ 1301 00b8 2F       		.uleb128 0x2f
+ 1302 00b9 05       		.uleb128 0x5
+ 1303 00ba 00       		.byte	0
+ 1304 00bb 00       		.byte	0
+ 1305 00bc 0D       		.uleb128 0xd
+ 1306 00bd 26       		.uleb128 0x26
+ 1307 00be 00       		.byte	0
+ 1308 00bf 49       		.uleb128 0x49
+ 1309 00c0 13       		.uleb128 0x13
+ 1310 00c1 00       		.byte	0
+ 1311 00c2 00       		.byte	0
+ 1312 00c3 00       		.byte	0
+ 1313              		.section	.debug_loc,"",%progbits
+ 1314              	.Ldebug_loc0:
+ 1315              	.LLST0:
+ 1316 0000 00000000 		.4byte	.LVL0
+ 1317 0004 20000000 		.4byte	.LVL8
+ 1318 0008 0100     		.2byte	0x1
+ 1319 000a 50       		.byte	0x50
+ 1320 000b 20000000 		.4byte	.LVL8
+ 1321 000f 2C000000 		.4byte	.LFE0
+ 1322 0013 0400     		.2byte	0x4
+ 1323 0015 F3       		.byte	0xf3
+ 1324 0016 01       		.uleb128 0x1
+ 1325 0017 50       		.byte	0x50
+ 1326 0018 9F       		.byte	0x9f
+ 1327 0019 00000000 		.4byte	0
+ 1328 001d 00000000 		.4byte	0
+ 1329              	.LLST1:
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 28
+
+
+ 1330 0021 00000000 		.4byte	.LVL0
+ 1331 0025 08000000 		.4byte	.LVL1
+ 1332 0029 0100     		.2byte	0x1
+ 1333 002b 51       		.byte	0x51
+ 1334 002c 08000000 		.4byte	.LVL1
+ 1335 0030 2C000000 		.4byte	.LFE0
+ 1336 0034 0400     		.2byte	0x4
+ 1337 0036 F3       		.byte	0xf3
+ 1338 0037 01       		.uleb128 0x1
+ 1339 0038 51       		.byte	0x51
+ 1340 0039 9F       		.byte	0x9f
+ 1341 003a 00000000 		.4byte	0
+ 1342 003e 00000000 		.4byte	0
+ 1343              	.LLST2:
+ 1344 0042 08000000 		.4byte	.LVL1
+ 1345 0046 20000000 		.4byte	.LVL8
+ 1346 004a 0100     		.2byte	0x1
+ 1347 004c 51       		.byte	0x51
+ 1348 004d 20000000 		.4byte	.LVL8
+ 1349 0051 25000000 		.4byte	.LVL9-1
+ 1350 0055 0100     		.2byte	0x1
+ 1351 0057 50       		.byte	0x50
+ 1352 0058 26000000 		.4byte	.LVL9
+ 1353 005c 2C000000 		.4byte	.LFE0
+ 1354 0060 0100     		.2byte	0x1
+ 1355 0062 50       		.byte	0x50
+ 1356 0063 00000000 		.4byte	0
+ 1357 0067 00000000 		.4byte	0
+ 1358              	.LLST3:
+ 1359 006b 10000000 		.4byte	.LVL2
+ 1360 006f 14000000 		.4byte	.LVL4
+ 1361 0073 0100     		.2byte	0x1
+ 1362 0075 53       		.byte	0x53
+ 1363 0076 14000000 		.4byte	.LVL4
+ 1364 007a 16000000 		.4byte	.LVL5
+ 1365 007e 0400     		.2byte	0x4
+ 1366 0080 73       		.byte	0x73
+ 1367 0081 00       		.sleb128 0
+ 1368 0082 1F       		.byte	0x1f
+ 1369 0083 9F       		.byte	0x9f
+ 1370 0084 16000000 		.4byte	.LVL5
+ 1371 0088 18000000 		.4byte	.LVL6
+ 1372 008c 0100     		.2byte	0x1
+ 1373 008e 53       		.byte	0x53
+ 1374 008f 1C000000 		.4byte	.LVL7
+ 1375 0093 25000000 		.4byte	.LVL9-1
+ 1376 0097 0100     		.2byte	0x1
+ 1377 0099 53       		.byte	0x53
+ 1378 009a 00000000 		.4byte	0
+ 1379 009e 00000000 		.4byte	0
+ 1380              	.LLST4:
+ 1381 00a2 00000000 		.4byte	.LVL10
+ 1382 00a6 74000000 		.4byte	.LVL23
+ 1383 00aa 0100     		.2byte	0x1
+ 1384 00ac 50       		.byte	0x50
+ 1385 00ad 74000000 		.4byte	.LVL23
+ 1386 00b1 98000000 		.4byte	.LFE1
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 29
+
+
+ 1387 00b5 0400     		.2byte	0x4
+ 1388 00b7 F3       		.byte	0xf3
+ 1389 00b8 01       		.uleb128 0x1
+ 1390 00b9 50       		.byte	0x50
+ 1391 00ba 9F       		.byte	0x9f
+ 1392 00bb 00000000 		.4byte	0
+ 1393 00bf 00000000 		.4byte	0
+ 1394              	.LLST5:
+ 1395 00c3 10000000 		.4byte	.LVL13
+ 1396 00c7 2C000000 		.4byte	.LVL14
+ 1397 00cb 0100     		.2byte	0x1
+ 1398 00cd 52       		.byte	0x52
+ 1399 00ce 2C000000 		.4byte	.LVL14
+ 1400 00d2 30000000 		.4byte	.LVL16
+ 1401 00d6 0300     		.2byte	0x3
+ 1402 00d8 72       		.byte	0x72
+ 1403 00d9 7F       		.sleb128 -1
+ 1404 00da 9F       		.byte	0x9f
+ 1405 00db 30000000 		.4byte	.LVL16
+ 1406 00df 34000000 		.4byte	.LVL18
+ 1407 00e3 0100     		.2byte	0x1
+ 1408 00e5 52       		.byte	0x52
+ 1409 00e6 00000000 		.4byte	0
+ 1410 00ea 00000000 		.4byte	0
+ 1411              	.LLST6:
+ 1412 00ee 02000000 		.4byte	.LVL11
+ 1413 00f2 0A000000 		.4byte	.LVL12
+ 1414 00f6 0200     		.2byte	0x2
+ 1415 00f8 30       		.byte	0x30
+ 1416 00f9 9F       		.byte	0x9f
+ 1417 00fa 0A000000 		.4byte	.LVL12
+ 1418 00fe 4C000000 		.4byte	.LVL20
+ 1419 0102 0100     		.2byte	0x1
+ 1420 0104 54       		.byte	0x54
+ 1421 0105 00000000 		.4byte	0
+ 1422 0109 00000000 		.4byte	0
+ 1423              	.LLST7:
+ 1424 010d 02000000 		.4byte	.LVL11
+ 1425 0111 0A000000 		.4byte	.LVL12
+ 1426 0115 0400     		.2byte	0x4
+ 1427 0117 0A       		.byte	0xa
+ 1428 0118 BC02     		.2byte	0x2bc
+ 1429 011a 9F       		.byte	0x9f
+ 1430 011b 0A000000 		.4byte	.LVL12
+ 1431 011f 32000000 		.4byte	.LVL17
+ 1432 0123 0100     		.2byte	0x1
+ 1433 0125 51       		.byte	0x51
+ 1434 0126 34000000 		.4byte	.LVL18
+ 1435 012a 3A000000 		.4byte	.LVL19
+ 1436 012e 0100     		.2byte	0x1
+ 1437 0130 51       		.byte	0x51
+ 1438 0131 3A000000 		.4byte	.LVL19
+ 1439 0135 5C000000 		.4byte	.LVL21
+ 1440 0139 0100     		.2byte	0x1
+ 1441 013b 52       		.byte	0x52
+ 1442 013c 5E000000 		.4byte	.LVL22
+ 1443 0140 7A000000 		.4byte	.LVL24
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 30
+
+
+ 1444 0144 0100     		.2byte	0x1
+ 1445 0146 52       		.byte	0x52
+ 1446 0147 7C000000 		.4byte	.LVL25
+ 1447 014b 80000000 		.4byte	.LVL26
+ 1448 014f 0100     		.2byte	0x1
+ 1449 0151 52       		.byte	0x52
+ 1450 0152 00000000 		.4byte	0
+ 1451 0156 00000000 		.4byte	0
+ 1452              		.section	.debug_aranges,"",%progbits
+ 1453 0000 24000000 		.4byte	0x24
+ 1454 0004 0200     		.2byte	0x2
+ 1455 0006 00000000 		.4byte	.Ldebug_info0
+ 1456 000a 04       		.byte	0x4
+ 1457 000b 00       		.byte	0
+ 1458 000c 0000     		.2byte	0
+ 1459 000e 0000     		.2byte	0
+ 1460 0010 00000000 		.4byte	.LFB0
+ 1461 0014 2C000000 		.4byte	.LFE0-.LFB0
+ 1462 0018 00000000 		.4byte	.LFB1
+ 1463 001c 98000000 		.4byte	.LFE1-.LFB1
+ 1464 0020 00000000 		.4byte	0
+ 1465 0024 00000000 		.4byte	0
+ 1466              		.section	.debug_ranges,"",%progbits
+ 1467              	.Ldebug_ranges0:
+ 1468 0000 00000000 		.4byte	.LFB0
+ 1469 0004 2C000000 		.4byte	.LFE0
+ 1470 0008 00000000 		.4byte	.LFB1
+ 1471 000c 98000000 		.4byte	.LFE1
+ 1472 0010 00000000 		.4byte	0
+ 1473 0014 00000000 		.4byte	0
+ 1474              		.section	.debug_line,"",%progbits
+ 1475              	.Ldebug_line0:
+ 1476 0000 BC000000 		.section	.debug_str,"MS",%progbits,1
+ 1476      02004900 
+ 1476      00000201 
+ 1476      FB0E0D00 
+ 1476      01010101 
+ 1477              	.LASF24:
+ 1478 0000 54686572 		.ascii	"Thermistor_LUT\000"
+ 1478      6D697374 
+ 1478      6F725F4C 
+ 1478      555400
+ 1479              	.LASF17:
+ 1480 000f 76526566 		.ascii	"vReference\000"
+ 1480      6572656E 
+ 1480      636500
+ 1481              	.LASF3:
+ 1482 001a 73686F72 		.ascii	"short unsigned int\000"
+ 1482      7420756E 
+ 1482      7369676E 
+ 1482      65642069 
+ 1482      6E7400
+ 1483              	.LASF25:
+ 1484 002d 66697273 		.ascii	"first\000"
+ 1484      7400
+ 1485              	.LASF13:
+ 1486 0033 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 31
+
+
+ 1486      7400
+ 1487              	.LASF1:
+ 1488 0039 756E7369 		.ascii	"unsigned char\000"
+ 1488      676E6564 
+ 1488      20636861 
+ 1488      7200
+ 1489              	.LASF11:
+ 1490 0047 696E7431 		.ascii	"int16\000"
+ 1490      3600
+ 1491              	.LASF5:
+ 1492 004d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1492      20756E73 
+ 1492      69676E65 
+ 1492      6420696E 
+ 1492      7400
+ 1493              	.LASF20:
+ 1494 005f 74656D70 		.ascii	"temp\000"
+ 1494      00
+ 1495              	.LASF12:
+ 1496 0064 696E7433 		.ascii	"int32\000"
+ 1496      3200
+ 1497              	.LASF22:
+ 1498 006a 54686572 		.ascii	"Thermistor_GetTemperature\000"
+ 1498      6D697374 
+ 1498      6F725F47 
+ 1498      65745465 
+ 1498      6D706572 
+ 1499              	.LASF23:
+ 1500 0084 74656D70 		.ascii	"tempTR\000"
+ 1500      545200
+ 1501              	.LASF14:
+ 1502 008b 646F7562 		.ascii	"double\000"
+ 1502      6C6500
+ 1503              	.LASF29:
+ 1504 0092 433A5C77 		.ascii	"C:\\work\\PSoC4\\Desalinator\\Desalinator.cydsn\000"
+ 1504      6F726B5C 
+ 1504      50536F43 
+ 1504      345C4465 
+ 1504      73616C69 
+ 1505              	.LASF9:
+ 1506 00be 75696E74 		.ascii	"uint16\000"
+ 1506      313600
+ 1507              	.LASF28:
+ 1508 00c5 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Thermistor.c\000"
+ 1508      6E657261 
+ 1508      7465645F 
+ 1508      536F7572 
+ 1508      63655C50 
+ 1509              	.LASF10:
+ 1510 00eb 75696E74 		.ascii	"uint32\000"
+ 1510      333200
+ 1511              	.LASF8:
+ 1512 00f2 756E7369 		.ascii	"unsigned int\000"
+ 1512      676E6564 
+ 1512      20696E74 
+ 1512      00
+ 1513              	.LASF7:
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 32
+
+
+ 1514 00ff 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1514      206C6F6E 
+ 1514      6720756E 
+ 1514      7369676E 
+ 1514      65642069 
+ 1515              	.LASF18:
+ 1516 0116 76546865 		.ascii	"vThermistor\000"
+ 1516      726D6973 
+ 1516      746F7200 
+ 1517              	.LASF16:
+ 1518 0122 73697A65 		.ascii	"sizetype\000"
+ 1518      74797065 
+ 1518      00
+ 1519              	.LASF6:
+ 1520 012b 6C6F6E67 		.ascii	"long long int\000"
+ 1520      206C6F6E 
+ 1520      6720696E 
+ 1520      7400
+ 1521              	.LASF15:
+ 1522 0139 63686172 		.ascii	"char\000"
+ 1522      00
+ 1523              	.LASF27:
+ 1524 013e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1524      4320342E 
+ 1524      392E3320 
+ 1524      32303135 
+ 1524      30333033 
+ 1525 0171 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1525      20726576 
+ 1525      6973696F 
+ 1525      6E203232 
+ 1525      31323230 
+ 1526 01a4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1526      66756E63 
+ 1526      74696F6E 
+ 1526      2D736563 
+ 1526      74696F6E 
+ 1527              	.LASF2:
+ 1528 01cc 73686F72 		.ascii	"short int\000"
+ 1528      7420696E 
+ 1528      7400
+ 1529              	.LASF21:
+ 1530 01d6 54686572 		.ascii	"Thermistor_GetResistance\000"
+ 1530      6D697374 
+ 1530      6F725F47 
+ 1530      65745265 
+ 1530      73697374 
+ 1531              	.LASF4:
+ 1532 01ef 6C6F6E67 		.ascii	"long int\000"
+ 1532      20696E74 
+ 1532      00
+ 1533              	.LASF19:
+ 1534 01f8 72657354 		.ascii	"resT\000"
+ 1534      00
+ 1535              	.LASF0:
+ 1536 01fd 7369676E 		.ascii	"signed char\000"
+ 1536      65642063 
+ARM GAS  C:\Users\Svilen\AppData\Local\Temp\ccDR8bTD.s 			page 33
+
+
+ 1536      68617200 
+ 1537              	.LASF26:
+ 1538 0209 6C617374 		.ascii	"last\000"
+ 1538      00
+ 1539              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

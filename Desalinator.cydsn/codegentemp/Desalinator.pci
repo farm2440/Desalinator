@@ -1,0 +1,32 @@
+# Desalinator
+# 2017-03-28 16:00:35Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\LCD:LCDPort(0)\" iocell 0 0
+set_io "\LCD:LCDPort(1)\" iocell 0 1
+set_io "\LCD:LCDPort(2)\" iocell 0 2
+set_io "\LCD:LCDPort(3)\" iocell 0 3
+set_io "\LCD:LCDPort(4)\" iocell 0 4
+set_io "\LCD:LCDPort(5)\" iocell 0 5
+set_io "\LCD:LCDPort(6)\" iocell 0 6
+set_io "Pin_thermo(0)" iocell 3 1
+set_io "Pin_salinity(0)" iocell 3 0
+set_io "Pin_out_LP(0)" iocell 2 0
+set_io "Pin_out_HP(0)" iocell 2 1
+set_io "Pin_out_V1(0)" iocell 2 2
+set_io "Pin_out_V2(0)" iocell 2 3
+set_io "Pin_out_START(0)" iocell 2 4
+set_io "Pin_out_STOP(0)" iocell 2 5
+set_io "Pin_out_FLUSH(0)" iocell 2 6
+set_io "Pin_out_ABN(0)" iocell 2 7
+set_io "Btns(0)" iocell 1 0
+set_io "Btns(1)" iocell 1 1
+set_io "Btns(2)" iocell 1 2
+set_io "Pin_hprs(0)" iocell 3 5
+set_io "Pin_ref(0)" iocell 3 4
+set_location "\IDAC:cy_psoc4_idac\" p4csidac8cell -1 -1 0
+set_location "\ADC:cy_psoc4_sar\" p4sarcell -1 -1 0

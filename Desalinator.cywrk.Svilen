@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Desalinator\Desalinator\Generated_Source\PSoC4\isr_BTNS">
+<ExpandedNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\TopDesign</v>
+<v>Desalinator\Desalinator\Desalinator.cydwr</v>
+<v>Desalinator\Desalinator\Header Files</v>
+<v>Desalinator\Desalinator\Header Files\cyapicallbacks.h</v>
+<v>Desalinator\Desalinator\Header Files\definitions.h</v>
+<v>Desalinator\Desalinator\Source Files</v>
+<v>Desalinator\Desalinator\Source Files\main.c</v>
+<v>Desalinator\Desalinator\Generated_Source</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC\ADC.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC\ADC.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC\ADC_INT.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC\ADC_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_intClock\ADC_intClock.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_intClock\ADC_intClock.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_IRQ\ADC_IRQ.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_IRQ\ADC_IRQ.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\AMux\AMux.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\AMux\AMux.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Btns\Btns.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Btns\Btns.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Btns\Btns_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Btns\Btns_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cmsis_armcc.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cmsis_gcc.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\IDAC\IDAC.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\IDAC\IDAC.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\IDAC\IDAC_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\isr_BTNS\isr_BTNS.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\isr_BTNS\isr_BTNS.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD\LCD.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD\LCD.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD\LCD_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD_LCDPort\LCD_LCDPort.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD_LCDPort\LCD_LCDPort.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD_LCDPort\LCD_LCDPort_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_ABN\Pin_out_ABN.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_ABN\Pin_out_ABN.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_ABN\Pin_out_ABN_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_ABN\Pin_out_ABN_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_FLUSH\Pin_out_FLUSH.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_FLUSH\Pin_out_FLUSH.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_FLUSH\Pin_out_FLUSH_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_FLUSH\Pin_out_FLUSH_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_HP\Pin_out_HP.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_HP\Pin_out_HP.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_HP\Pin_out_HP_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_HP\Pin_out_HP_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_LP\Pin_out_LP.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_LP\Pin_out_LP.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_LP\Pin_out_LP_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_LP\Pin_out_LP_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_START\Pin_out_START.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_START\Pin_out_START.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_START\Pin_out_START_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_START\Pin_out_START_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_STOP\Pin_out_STOP.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_STOP\Pin_out_STOP.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_STOP\Pin_out_STOP_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_STOP\Pin_out_STOP_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V1\Pin_out_V1.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V1\Pin_out_V1.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V1\Pin_out_V1_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V1\Pin_out_V1_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V2\Pin_out_V2.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V2\Pin_out_V2.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V2\Pin_out_V2_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V2\Pin_out_V2_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref\Pin_ref.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref\Pin_ref.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref\Pin_ref_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref\Pin_ref_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_salinity\Pin_salinity.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_salinity\Pin_salinity.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_salinity\Pin_salinity_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_salinity\Pin_salinity_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_thermo\Pin_thermo.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_thermo\Pin_thermo.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_thermo\Pin_thermo_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_thermo\Pin_thermo_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Thermistor\Thermistor.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Thermistor\Thermistor.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\TopDesign</v>
+<v>Desalinator\Desalinator\Desalinator.cydwr</v>
+<v>Desalinator\Desalinator\Header Files</v>
+<v>Desalinator\Desalinator\Header Files\cyapicallbacks.h</v>
+<v>Desalinator\Desalinator\Header Files\definitions.h</v>
+<v>Desalinator\Desalinator\Source Files</v>
+<v>Desalinator\Desalinator\Source Files\main.c</v>
+<v>Desalinator\Desalinator\Generated_Source</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_intClock</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\ADC_IRQ</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\AMux</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Btns</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_boot</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\IDAC</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\isr_BTNS</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\LCD_LCDPort</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs_aliases.h</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_hprs\Pin_hprs_PM.c</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_ABN</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_FLUSH</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_HP</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_LP</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_START</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_STOP</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V1</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_out_V2</v>
+<v>Desalinator\Desalinator\Generated_Source\PSoC4\Pin_ref</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\TopDesign</v>
+<v>Desalinator\Desalinator\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\TopDesign</v>
+<v>Desalinator\Desalinator\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\CortexM0</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\AMux.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Btns.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Btns_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\IDAC.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\IDAC_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_BTNS.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_hprs.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_hprs_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_ABN.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_ABN_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_FLUSH.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_FLUSH_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_HP.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_HP_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_LP.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_LP_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_START.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_START_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_STOP.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_STOP_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_V1.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_V1_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_V2.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_V2_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_ref.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_ref_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_salinity.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_salinity_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_thermo.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_thermo_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Thermistor.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Desalinator.elf</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Desalinator.hex</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Desalinator.map</v>
+<v>Desalinator\Desalinator\Desalinator.gpdsc</v>
+<v>Desalinator\Desalinator\Desalinator.rpt</v>
+<v>Desalinator\Desalinator\Desalinator_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\CortexM0</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\AMux.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Btns.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Btns_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\IDAC.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\IDAC_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_BTNS.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_hprs.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_hprs_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_ABN.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_ABN_PM.lst</v>
+<v>Desalinator\Desalinator\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_out_FLUSH.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\PSoC 4 Architecture TRM</v>
+<v>Desalinator\Desalinator\PSoC 4200 Family Datasheet</v>
+<v>Desalinator\Desalinator\System Reference Guides</v>
+<v>Desalinator\Desalinator\System Reference Guides\cy_boot_v5_40</v>
+<v>Desalinator\Desalinator\System Reference Guides\cy_lfclk_v1_10</v>
+<v>Desalinator\Desalinator\ADC_SAR_SEQ_P4_v2_40.pdf</v>
+<v>Desalinator\Desalinator\AMux_v1_80.pdf</v>
+<v>Desalinator\Desalinator\CharLCD_v2_20.pdf</v>
+<v>Desalinator\Desalinator\Connector20_v1_0.pdf</v>
+<v>Desalinator\Desalinator\cy_isr_v1_70.pdf</v>
+<v>Desalinator\Desalinator\cy_pins_v2_20</v>
+<v>Desalinator\Desalinator\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Desalinator\Desalinator\Gnd_v1_0</v>
+<v>Desalinator\Desalinator\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>Desalinator\Desalinator\IDAC_P4_v1_10.pdf</v>
+<v>Desalinator\Desalinator\ISource_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Power_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Resistor_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Thermistor_v1_0.pdf</v>
+<v>Desalinator\Desalinator\ThermistorCalc_v1_20.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Desalinator</v>
+<v>Desalinator\Desalinator</v>
+<v>Desalinator\Desalinator\PSoC 4 Architecture TRM</v>
+<v>Desalinator\Desalinator\PSoC 4200 Family Datasheet</v>
+<v>Desalinator\Desalinator\System Reference Guides</v>
+<v>Desalinator\Desalinator\System Reference Guides\cy_boot_v5_40</v>
+<v>Desalinator\Desalinator\System Reference Guides\cy_lfclk_v1_10</v>
+<v>Desalinator\Desalinator\ADC_SAR_SEQ_P4_v2_40.pdf</v>
+<v>Desalinator\Desalinator\AMux_v1_80.pdf</v>
+<v>Desalinator\Desalinator\CharLCD_v2_20.pdf</v>
+<v>Desalinator\Desalinator\Connector20_v1_0.pdf</v>
+<v>Desalinator\Desalinator\cy_isr_v1_70.pdf</v>
+<v>Desalinator\Desalinator\cy_pins_v2_20</v>
+<v>Desalinator\Desalinator\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Desalinator\Desalinator\Gnd_v1_0</v>
+<v>Desalinator\Desalinator\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>Desalinator\Desalinator\IDAC_P4_v1_10.pdf</v>
+<v>Desalinator\Desalinator\ISource_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Power_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Resistor_v1_0.pdf</v>
+<v>Desalinator\Desalinator\Thermistor_v1_0.pdf</v>
+<v>Desalinator\Desalinator\ThermistorCalc_v1_20.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Desalinator.cydsn\Desalinator.cydwr" />
+<name v=".\Desalinator.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Desalinator.cydsn\main.c" />
+<name v=".\Desalinator.cydsn\definitions.h" />
+</OpenDocs>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
